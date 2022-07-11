@@ -1,11 +1,34 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entity/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/World1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/Minecraft.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Label_lives.gd" type="Script" id=4]
+[ext_resource path="res://Game.gd" type="Script" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 3 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="World1" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 519, 161 )
+position = Vector2( 468, -298 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label_lives" type="Label" parent="CanvasLayer"]
+margin_left = 25.0
+margin_top = 563.0
+margin_right = 101.0
+margin_bottom = 601.0
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Zivoty:"
+script = ExtResource( 4 )

@@ -34,7 +34,7 @@ func _physics_process(delta):
 		var key_down = false
 		if not no_action:
 			# pohyb
-			if Input.is_action_pressed("player_left"):
+			if Input.is_action_pressed("player_left") and position.x > 0:
 				move.x = -speed	
 				key_down = true
 				$AnimatedSprite.flip_h = true
@@ -86,6 +86,10 @@ func _physics_process(delta):
 		
 	# provedeni pohybu
 	move = move_and_slide(move, Vector2(0, -1))
+	
+	# smrt, pad dolu
+	if position.y > 2000:
+		queue_free()
 
 func noActionMode():
 	no_action = true

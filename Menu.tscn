@@ -1,3 +1,127 @@
-[gd_scene format=2]
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://world/bg_parallax.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Minecraft.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 4 )
 
 [node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="bg_parallax" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6, 60 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 514, 449 )
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+position = Vector2( 187, 288 )
+points = PoolVector2Array( -37, -30, 247, -30 )
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="title" type="Label" parent="CanvasLayer"]
+margin_left = 155.0
+margin_top = 192.0
+margin_right = 436.0
+margin_bottom = 243.0
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Cat Warrior"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="new_game" type="Label" parent="CanvasLayer"]
+anchor_left = -0.0371094
+anchor_top = -0.0333333
+anchor_right = 0.116211
+anchor_bottom = -0.0333333
+margin_left = 238.0
+margin_top = 320.0
+margin_right = 519.0
+margin_bottom = 371.0
+rect_pivot_offset = Vector2( 94, 8 )
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "New game"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="load_game" type="Label" parent="CanvasLayer"]
+anchor_left = -0.0371094
+anchor_top = -0.0333333
+anchor_right = -0.0371094
+anchor_bottom = -0.0333333
+margin_left = 238.0
+margin_top = 380.0
+margin_right = 519.0
+margin_bottom = 431.0
+rect_pivot_offset = Vector2( 94, 8 )
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "Load game"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="about" type="Label" parent="CanvasLayer"]
+anchor_left = -0.0371094
+anchor_top = -0.0333333
+anchor_right = -0.0371094
+anchor_bottom = -0.0333333
+margin_left = 238.0
+margin_top = 438.0
+margin_right = 519.0
+margin_bottom = 489.0
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "About"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="quit" type="Label" parent="CanvasLayer"]
+anchor_left = -0.0371094
+anchor_top = -0.0333333
+anchor_right = -0.0371094
+anchor_bottom = -0.0333333
+margin_left = 238.0
+margin_top = 496.0
+margin_right = 519.0
+margin_bottom = 547.0
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="mouse_entered" from="CanvasLayer/new_game" to="." method="_on_new_game_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/new_game" to="." method="_on_new_game_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/load_game" to="." method="_on_load_game_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/load_game" to="." method="_on_load_game_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/about" to="." method="_on_about_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/about" to="." method="_on_about_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/quit" to="." method="_on_quit_mouse_exited"]

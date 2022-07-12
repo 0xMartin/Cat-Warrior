@@ -34,25 +34,25 @@ __meta__ = {
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 modulate = Color( 0, 0, 0, 0.670588 )
-margin_left = 60.0
-margin_top = 99.0
-margin_right = 689.0
-margin_bottom = 346.0
+margin_left = 236.0
+margin_top = 187.0
+margin_right = 865.0
+margin_bottom = 434.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Line2D" type="Line2D" parent="CanvasLayer"]
-position = Vector2( 128, 245 )
+position = Vector2( 304, 333 )
 points = PoolVector2Array( -37, -30, 247, -30 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="title" type="Label" parent="CanvasLayer"]
-margin_left = 96.0
-margin_top = 149.0
-margin_right = 519.0
-margin_bottom = 200.0
+margin_left = 272.0
+margin_top = 237.0
+margin_right = 695.0
+margin_bottom = 288.0
 size_flags_stretch_ratio = 1.55
 theme = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
@@ -62,10 +62,10 @@ __meta__ = {
 }
 
 [node name="continue" type="Button" parent="CanvasLayer"]
-margin_left = 102.0
-margin_top = 272.0
-margin_right = 343.0
-margin_bottom = 302.0
+margin_left = 278.0
+margin_top = 360.0
+margin_right = 519.0
+margin_bottom = 390.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Pokracovat ve hre"
@@ -76,10 +76,10 @@ __meta__ = {
 }
 
 [node name="back" type="Button" parent="CanvasLayer"]
-margin_left = 488.0
-margin_top = 272.0
-margin_right = 678.0
-margin_bottom = 302.0
+margin_left = 664.0
+margin_top = 360.0
+margin_right = 854.0
+margin_bottom = 390.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Zpet do menu"

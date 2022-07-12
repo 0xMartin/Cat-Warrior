@@ -31,22 +31,22 @@ margin_bottom = 616.0
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 modulate = Color( 0, 0, 0, 0.670588 )
-margin_left = 60.0
-margin_top = 99.0
-margin_right = 689.0
-margin_bottom = 346.0
+margin_left = 226.0
+margin_top = 186.0
+margin_right = 855.0
+margin_bottom = 433.0
 
 [node name="Line2D" type="Line2D" parent="CanvasLayer"]
-position = Vector2( 128, 245 )
+position = Vector2( 294, 332 )
 points = PoolVector2Array( -37, -30, 247, -30 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="title" type="Label" parent="CanvasLayer"]
-margin_left = 96.0
-margin_top = 149.0
-margin_right = 519.0
-margin_bottom = 200.0
+margin_left = 262.0
+margin_top = 236.0
+margin_right = 685.0
+margin_bottom = 287.0
 size_flags_stretch_ratio = 1.55
 theme = SubResource( 1 )
 custom_colors/font_color = Color( 0.705882, 0.0901961, 0.0901961, 1 )
@@ -57,10 +57,10 @@ __meta__ = {
 }
 
 [node name="respawn" type="Button" parent="CanvasLayer"]
-margin_left = 102.0
-margin_top = 272.0
-margin_right = 343.0
-margin_bottom = 302.0
+margin_left = 268.0
+margin_top = 359.0
+margin_right = 509.0
+margin_bottom = 389.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Respawn"
@@ -68,10 +68,10 @@ flat = true
 align = 0
 
 [node name="back" type="Button" parent="CanvasLayer"]
-margin_left = 488.0
-margin_top = 272.0
-margin_right = 678.0
-margin_bottom = 302.0
+margin_left = 654.0
+margin_top = 359.0
+margin_right = 844.0
+margin_bottom = 389.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Konec hry"

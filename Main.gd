@@ -30,7 +30,17 @@ func createNewGame(player_name):
 	showGame()
 	setWorld()
 	
-# nastavi svet a spawnpoint hrace
+# nacte hru ze savu hrace	
+func loadGame(save_file_path):
+	var file = File.new()
+	file.open(save_file_path, File.READ)
+	var data = file.get_var()
+	file.close()
+	GameConfig.player_save.loadFromJSON(data)
+	showGame()
+	setWorld()
+	
+# nastavi svet a spawnpoint hrace podle globalne nacteneho savu hrace
 func setWorld():
 	game.loadWorld(GameConfig.player_save.world_index)
 	game.setPlayerPosition(GameConfig.player_save.spawnpoint_index)

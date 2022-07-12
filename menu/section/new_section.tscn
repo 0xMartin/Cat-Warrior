@@ -52,9 +52,9 @@ __meta__ = {
 }
 
 [node name="play" type="Button" parent="CanvasLayer"]
-margin_left = 161.0
+margin_left = 543.0
 margin_top = 368.0
-margin_right = 334.0
+margin_right = 608.0
 margin_bottom = 398.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -63,9 +63,9 @@ flat = true
 align = 0
 
 [node name="back" type="Button" parent="CanvasLayer"]
-margin_left = 536.0
+margin_left = 160.0
 margin_top = 368.0
-margin_right = 605.0
+margin_right = 229.0
 margin_bottom = 398.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -74,12 +74,13 @@ flat = true
 align = 0
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.839216 )
 margin_left = 283.0
 margin_top = 296.0
 margin_right = 601.0
 margin_bottom = 336.0
 custom_fonts/font = SubResource( 4 )
-text = "Hrac 1"
+text = "Zori"
 breakpoint_gutter = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]

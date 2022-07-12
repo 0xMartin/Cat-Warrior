@@ -78,6 +78,8 @@ func hideGameOverMenu():
 		
 # navrat zpet do menu (ukoncit hru)
 func quitGame():
+	# ulozi save
+	storeSave(GameConfig.player_save)
 	# odstrani aktualniho hrace a svet
 	if GameConfig.current_player != null:
 		GameConfig.current_player.queue_free()
@@ -92,3 +94,13 @@ func quitGame():
 	# Main -> pozadavek na zobrazeni menu
 	get_parent().showMenu()
 
+func storeSave(player_save):
+	var file = File.new()
+	file.open("save/save_" + player_save.player_name + ".data", File.WRITE)
+	var data = {
+		"player_name": player_save.player_name,
+		"world_index": player_save.world_index,
+		"spawnpoint_index": player_save.spawnpoint_index
+	}
+	file.store_var(data)
+	file.close()

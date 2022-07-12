@@ -27,6 +27,7 @@ func showLoad():
 	print("load")
 	removeAll()
 	add_child(load_section)
+	load_section.show()
 	
 func showAbout():
 	print("about")
@@ -41,4 +42,7 @@ func removeAll():
 	
 func playGame(player_name):
 	get_parent().createNewGame(player_name)
+	
+func loadGame(save_file_path):
+	get_parent().loadGame(save_file_path)
 

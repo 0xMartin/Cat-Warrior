@@ -10,7 +10,6 @@ var player_save = load("save.gd").new()
 func _ready():
 	# zobrazi hlavni menu
 	add_child(menu)
-	
 	# zmeni kurzor
 	Input.set_custom_mouse_cursor(arrow)
 
@@ -30,4 +29,13 @@ func createNewGame(player_name):
 	player_save.spawnpoint_index = 0
 	player_save.world_index = 0
 	showGame()
+	setWorld()
+	
+# nastavi svet a spawnpoint hrace
+func setWorld():
+	game.loadWorld(player_save.world_index)
 	game.setPlayerPosition(player_save.spawnpoint_index)
+	
+# navrati save hrace
+func getSave():
+	return player_save

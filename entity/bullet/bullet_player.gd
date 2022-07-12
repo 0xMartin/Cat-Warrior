@@ -12,6 +12,8 @@ func init(_right):
 		$Sprite.flip_h = true
 
 func _physics_process(delta):
+	if not GameConfig.physics_enabled:
+		return	
 	position.x += speed * delta
 
 # po uplinuti definovaneho casu odstrani strelu

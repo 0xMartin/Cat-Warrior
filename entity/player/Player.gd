@@ -18,6 +18,9 @@ export var speed = 200
 # intenzita skoku
 export var jump = 600
 
+# true -> je mozne ovladat postavu
+export var enabled = true
+
 
 var no_action = false
 var move = Vector2()
@@ -26,10 +29,13 @@ var bullet_scene = preload("res://entity/bullet/bullet_player.tscn")
 
 
 func _physics_process(delta):
+	if not GameConfig.physics_enabled:
+		return
+		
 	# gravitace
 	move.y += gravity * delta;
 	
-	# ovladani postavi (jen pokud stoji na zemi)
+	# ovladani postavy (jen pokud stoji na zemi)
 	if is_on_floor():
 		var key_down = false
 		if not no_action:
@@ -89,6 +95,7 @@ func _physics_process(delta):
 	
 	# smrt, pad dolu
 	if position.y > 2000:
+		GameConfig.current_player = null
 		queue_free()
 
 func noActionMode():

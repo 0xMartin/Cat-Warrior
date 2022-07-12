@@ -38,4 +38,7 @@ func removeAll():
 	remove_child(new_section)
 	remove_child(load_section)
 	remove_child(about_section)
+	
+func playGame(player_name):
+	get_parent().createNewGame(player_name)
 

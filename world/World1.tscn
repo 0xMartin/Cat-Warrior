@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://world/bg_parallax.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/World1.gd" type="Script" id=2]
 [ext_resource path="res://assets/world/grass.png" type="Texture" id=6]
 [ext_resource path="res://entity/grass1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entity/grass2.tscn" type="PackedScene" id=8]
@@ -35,6 +36,7 @@ extents = Vector2( 227, 146.875 )
 extents = Vector2( 847, 140.375 )
 
 [node name="World1" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="bg_parallax" parent="." instance=ExtResource( 1 )]
 
@@ -274,3 +276,6 @@ position = Vector2( 4981, 738 )
 
 [node name="grass14" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4838, 738 )
+
+[node name="spawn0" type="Position2D" parent="."]
+position = Vector2( 471, -119 )

@@ -1,12 +1,11 @@
 extends Node2D
 
-var menu_scene = preload("res://menu/Menu.tscn")
-var game_scene = preload("res://Game.tscn")
-
-var menu = menu_scene.instance()
-var game = game_scene.instance()
+var menu = preload("res://menu/Menu.tscn").instance()
+var game = preload("res://Game.tscn").instance()
 
 var arrow = load("res://assets/sword_arrow.png")
+
+var player_save = load("save.gd").new()
 
 func _ready():
 	# zobrazi hlavni menu
@@ -24,3 +23,11 @@ func showMenu():
 func showGame():
 	remove_child(menu)
 	add_child(game)
+
+# vytvori novou hru
+func createNewGame(player_name):
+	player_save.player_name = player_name
+	player_save.spawnpoint_index = 0
+	player_save.world_index = 0
+	showGame()
+	game.setPlayerPosition(player_save.spawnpoint_index)

@@ -91,8 +91,4 @@ func quitGame():
 	hideGameOverMenu()
 	# Main -> pozadavek na zobrazeni menu
 	get_parent().showMenu()
-	
-	
-# navrati save hrace
-func getSave():
-	return get_parent().getSave()
+

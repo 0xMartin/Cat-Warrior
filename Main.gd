@@ -5,7 +5,6 @@ var game = preload("res://Game.tscn").instance()
 
 var arrow = load("res://assets/sword_arrow.png")
 
-var player_save = load("save.gd").new()
 
 func _ready():
 	# zobrazi hlavni menu
@@ -25,17 +24,13 @@ func showGame():
 
 # vytvori novou hru
 func createNewGame(player_name):
-	player_save.player_name = player_name
-	player_save.spawnpoint_index = 0
-	player_save.world_index = 0
+	GameConfig.player_save.player_name = player_name
+	GameConfig.player_save.spawnpoint_index = 0
+	GameConfig.player_save.world_index = 0
 	showGame()
 	setWorld()
 	
 # nastavi svet a spawnpoint hrace
 func setWorld():
-	game.loadWorld(player_save.world_index)
-	game.setPlayerPosition(player_save.spawnpoint_index)
-	
-# navrati save hrace
-func getSave():
-	return player_save
+	game.loadWorld(GameConfig.player_save.world_index)
+	game.setPlayerPosition(GameConfig.player_save.spawnpoint_index)

@@ -4,9 +4,8 @@ extends Node2D
 func _on_respawn_pressed():
 	var parent = get_parent()
 	parent.hideGameOverMenu()
-	var save = parent.getSave()
-	if save != null:
-		parent.setPlayerPosition(save.spawnpoint_index)
+	if GameConfig.player_save != null:
+		parent.setPlayerPosition(GameConfig.player_save.spawnpoint_index)
 	else:
 		parent.setPlayerPosition(0)
 

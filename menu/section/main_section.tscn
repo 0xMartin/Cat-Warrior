@@ -36,7 +36,7 @@ margin_bottom = 243.0
 size_flags_stretch_ratio = 1.55
 theme = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Cat Warrior"
+text = "Zori Cat Warrior"
 __meta__ = {
 "_edit_use_anchors_": true
 }

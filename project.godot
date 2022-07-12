@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Cat Warrior"
+config/name="Zori Cat Warrior"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 

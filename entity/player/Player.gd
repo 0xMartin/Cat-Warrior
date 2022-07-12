@@ -33,7 +33,7 @@ func _physics_process(delta):
 		return
 		
 	# gravitace
-	move.y += gravity * delta;
+	move.y += min(gravity * delta, 1600);
 	
 	# ovladani postavy (jen pokud stoji na zemi)
 	if is_on_floor():
@@ -93,8 +93,9 @@ func _physics_process(delta):
 	# provedeni pohybu
 	move = move_and_slide(move, Vector2(0, -1))
 	
-	# smrt, pad dolu
-	if position.y > 2000:
+	# smrt: pad dolu nebo ztrata vsech hp
+	if position.y > 1000 or lives < 0:
+		lives = max(lives, 0)
 		GameConfig.current_player = null
 		queue_free()
 

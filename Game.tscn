@@ -8,11 +8,14 @@
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
+outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Game" type="Node2D"]

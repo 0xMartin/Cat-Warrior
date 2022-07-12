@@ -20,6 +20,6 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	queue_free()
 
-# strela nekoho zasahla
+
 func _on_bullet_player_area_entered(area):
-	pass # Replace with function body.
+	pass

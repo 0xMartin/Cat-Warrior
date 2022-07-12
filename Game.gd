@@ -96,7 +96,7 @@ func quitGame():
 
 func storeSave(player_save):
 	var file = File.new()
-	file.open("save/save_" + player_save.player_name + ".data", File.WRITE)
+	file.open("save/" + player_save.player_name, File.WRITE)
 	var data = {
 		"player_name": player_save.player_name,
 		"world_index": player_save.world_index,

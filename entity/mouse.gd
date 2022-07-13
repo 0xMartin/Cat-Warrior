@@ -32,28 +32,43 @@ func _physics_process(delta):
 			0:
 				move.x = 0
 				if wait <= 0:
+					rng.randomize()
 					if not $RayCastLeft.is_colliding():
+						# pujde doprava
 						state = 2
 						$AnimatedSprite.flip_h = false
-					else:
+					elif not $RayCastRight.is_colliding():
+						# pujde doleva
 						state = 1
 						$AnimatedSprite.flip_h = true
+					else:
+						# nahodny vyber smeru
+						if rng.randi() % 2 == 1:
+							state = 1
+							$AnimatedSprite.flip_h = true
+						else:
+							state = 2
+							$AnimatedSprite.flip_h = false
 					$AnimatedSprite.play("walk")
+					wait = rng.randi_range (60, 300)
 				wait -= 1
 			1:
 				move.x = -speed
-				if not $RayCastLeft.is_colliding():
+				if not $RayCastLeft.is_colliding() or is_on_wall() or wait <= 0:
 					state = 4	
+				wait -= 1
 			2:
 				move.x = speed
-				if not $RayCastRight.is_colliding():
+				if not $RayCastRight.is_colliding() or is_on_wall() or wait <= 0:
 					state = 4	
+				wait -= 1
 			3:
 				pass
 			4:
 				move.x = 0
 				state = 0
 				$AnimatedSprite.play("idle")
+				rng.randomize()
 				wait = rng.randi_range (60, 300)
 			
 	# provedeni pohybu

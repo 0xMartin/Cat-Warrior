@@ -30,6 +30,7 @@ animations = [ {
 extents = Vector2( 19, 22.5 )
 
 [node name="mouse" type="KinematicBody2D" groups=["hit_enabled"]]
+collision_layer = 2
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

@@ -3,12 +3,6 @@ extends KinematicBody2D
 # pocet zivotu
 export var lives = 100
 
-# poskozeni na vystrel
-export var damage_shot = 5
-
-# poskozeni na zasah z blizka
-export var damage_hit = 10
-
 # sila gravitace
 export var gravity = 1000
 

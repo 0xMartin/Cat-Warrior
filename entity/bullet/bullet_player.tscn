@@ -4,14 +4,13 @@
 [ext_resource path="res://entity/bullet/bullet_player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 27.5, 8 )
+extents = Vector2( 19.5, 8 )
 
-[node name="bullet_player" type="Area2D"]
-collision_layer = 16
+[node name="bullet_player" type="Area2D" groups=["bullet"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.5, 0 )
+position = Vector2( 9.5, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -22,5 +21,5 @@ texture = ExtResource( 1 )
 one_shot = true
 autostart = true
 
-[connection signal="area_entered" from="." to="." method="_on_bullet_player_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_bullet_player_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

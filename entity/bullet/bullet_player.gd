@@ -1,11 +1,13 @@
 extends Area2D
 
 export var speed = 600
+export var damage = 4
 
 var move = Vector2()
 var right = false
 var particles = preload("res://entity/fx/bullet_particles.tscn").instance()
 var explosion = preload("res://entity/fx/explosion.tscn").instance()
+
 
 func init(_right):
 	right = _right
@@ -29,10 +31,13 @@ func _on_Timer_timeout():
 	hit()
 
 
-# kolize s objektem
-func _on_bullet_player_area_entered(area):
-	hit()
-	
+# kolize
+func _on_bullet_player_body_entered(body):
+	if body.is_in_group("hit_enabled"):
+		hit()
+		if body.has_method("hit"):
+			body.hit(damage)
+
 
 # zasah: destruktor + exploze
 func hit():
@@ -42,3 +47,4 @@ func hit():
 	#destruktor
 	particles.kill()
 	queue_free()
+

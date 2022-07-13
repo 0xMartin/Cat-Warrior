@@ -11,10 +11,10 @@ emission_shape = 2
 emission_box_extents = Vector3( 550, 300, 1 )
 flag_disable_z = true
 direction = Vector3( 1, 1, 0 )
-gravity = Vector3( -60, 98, 0 )
+gravity = Vector3( -30, 50, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale = 3.0
+scale = 4.0
 
 [node name="bg_parallax" type="Node2D"]
 
@@ -62,9 +62,9 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
 
 [node name="Particles2D" type="Particles2D" parent="ParallaxBackground"]
-modulate = Color( 1, 1, 1, 0.266667 )
+modulate = Color( 1, 1, 1, 0.188235 )
 position = Vector2( 513, 276 )
-amount = 60
-lifetime = 2.0
+amount = 40
+lifetime = 3.0
 local_coords = false
 process_material = SubResource( 1 )

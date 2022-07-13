@@ -12,6 +12,7 @@ gravity = Vector3( 0, 44, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 0.99
+color = Color( 0.780392, 0.203922, 0.862745, 1 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )

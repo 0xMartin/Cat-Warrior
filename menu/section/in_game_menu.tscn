@@ -62,9 +62,9 @@ __meta__ = {
 }
 
 [node name="continue" type="Button" parent="CanvasLayer"]
-margin_left = 278.0
+margin_left = 265.0
 margin_top = 360.0
-margin_right = 519.0
+margin_right = 506.0
 margin_bottom = 390.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -76,13 +76,13 @@ __meta__ = {
 }
 
 [node name="back" type="Button" parent="CanvasLayer"]
-margin_left = 664.0
+margin_left = 579.0
 margin_top = 360.0
-margin_right = 854.0
+margin_right = 848.0
 margin_bottom = 390.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Zpet do menu"
+text = "Ulozit a zpet do menu"
 flat = true
 align = 0
 __meta__ = {

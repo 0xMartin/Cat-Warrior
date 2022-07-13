@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Krampus Workshop.mp3-e556657f62ec86b1514ffcff795204c6.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Krampus Workshop.mp3"
+dest_files=[ "res://.import/Krampus Workshop.mp3-e556657f62ec86b1514ffcff795204c6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

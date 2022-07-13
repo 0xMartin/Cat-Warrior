@@ -31,7 +31,19 @@ var bullet_scene = preload("res://entity/bullet/bullet_player.tscn")
 func _physics_process(delta):
 	if not GameConfig.physics_enabled:
 		return
-		
+
+	moveProcess(delta)
+	particleProcess(delta)
+	
+	# smrt: pad dolu nebo ztrata vsech hp
+	if position.y > 1000 or lives < 0:
+		lives = max(lives, 0)
+		GameConfig.current_player = null
+		queue_free()
+
+
+# zpracovani pohybu hrace
+func moveProcess(delta):		
 	# gravitace
 	move.y += min(gravity * delta, 1600);
 	
@@ -67,6 +79,7 @@ func _physics_process(delta):
 				$AnimatedSprite.play("shot")
 				$AnimatedSprite.offset.y -= 4
 				var bullet = bullet_scene.instance()
+				get_parent().add_child(bullet)
 				bullet.init(not $AnimatedSprite.flip_h)
 				if $AnimatedSprite.flip_h:
 					bullet.position = $shot_left.global_position
@@ -74,7 +87,6 @@ func _physics_process(delta):
 				else:
 					bullet.position = $shot_right.global_position
 					$AnimatedSprite.offset.x += 10
-				$"../".add_child(bullet)
 				noActionMode()
 				key_down = true
 			
@@ -89,15 +101,27 @@ func _physics_process(delta):
 		# animice pro pad
 		if move.y > 0:
 			$AnimatedSprite.play("fall")
-		
+			
 	# provedeni pohybu
 	move = move_and_slide(move, Vector2(0, -1))
 	
-	# smrt: pad dolu nebo ztrata vsech hp
-	if position.y > 1000 or lives < 0:
-		lives = max(lives, 0)
-		GameConfig.current_player = null
-		queue_free()
+
+# zpravovani castic
+var last_y = 0
+func particleProcess(delta):
+	# castice pri pohybu hrace
+	if is_on_floor():
+		if move.x != 0:
+			$Particles2D_run.emitting = true
+			if move.x > 0:
+				$Particles2D_run.process_material.direction.x = -1
+			else:
+				$Particles2D_run.process_material.direction.x = 1
+		else:
+			$Particles2D_run.emitting = false
+	else:
+		$Particles2D_run.emitting = false
+		
 
 func noActionMode():
 	no_action = true

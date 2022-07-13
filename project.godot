@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GameConfig="*res://GameConfig.gd"
+Sound="*res://sound.tscn"
 
 [display]
 

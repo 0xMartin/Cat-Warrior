@@ -74,6 +74,7 @@ margin_left = 161.0
 margin_top = 368.0
 margin_right = 334.0
 margin_bottom = 398.0
+rect_pivot_offset = Vector2( 50, 30 )
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "O hre"
@@ -83,11 +84,26 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="credits" type="Button" parent="CanvasLayer"]
+margin_left = 161.0
+margin_top = 412.0
+margin_right = 334.0
+margin_bottom = 442.0
+rect_pivot_offset = Vector2( 50, 30 )
+custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Titulky"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="exit" type="Button" parent="CanvasLayer"]
 margin_left = 161.0
-margin_top = 414.0
+margin_top = 456.0
 margin_right = 334.0
-margin_bottom = 444.0
+margin_bottom = 486.0
 custom_colors/font_color = Color( 0.635294, 0.541176, 0.541176, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Konec"
@@ -100,4 +116,5 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/load_game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/about" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="CanvasLayer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/exit" to="." method="_on_exit_pressed"]

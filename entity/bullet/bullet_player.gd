@@ -16,7 +16,7 @@ func init(_right):
 		$Sprite.flip_h = true
 		
 	# spawn particle efektu
-	particles.init(self, Color.blue, 30, 4, 1)
+	particles.init(self, Color.cornflower, 30, 4, 1)
 	get_parent().add_child(particles)
 
 
@@ -28,7 +28,9 @@ func _physics_process(delta):
 
 # po uplinuti definovaneho casu odstrani strelu
 func _on_Timer_timeout():
-	hit()
+	#destruktor
+	particles.kill()
+	queue_free()
 
 
 # kolize
@@ -41,9 +43,10 @@ func _on_bullet_player_body_entered(body):
 
 # zasah: destruktor + exploze
 func hit():
+	Sound.hit()
 	# exploze
 	get_parent().add_child(explosion)
-	explosion.init(position, Color.blue, 90, 300, 4, 0.2, 0.1)
+	explosion.init(position, Color.cornflower, 90, 300, 4, 0.2, 0.1)
 	#destruktor
 	particles.kill()
 	queue_free()

@@ -33,11 +33,12 @@ func _physics_process(delta):
 	if position.y > 1000 or lives < 0:
 		lives = max(lives, 0)
 		GameConfig.current_player = null
+		Sound.death()
 		queue_free()
 
 
 # zpracovani pohybu hrace
-func moveProcess(delta):		
+func moveProcess(delta):
 	# gravitace
 	move.y += min(gravity * delta, 1600);
 	
@@ -60,6 +61,7 @@ func moveProcess(delta):
 				move.y = -jump
 				key_down = true
 				$AnimatedSprite.play("jump")
+				Sound.jump()
 				
 			# utok
 			if Input.is_action_pressed("player_hit"):
@@ -83,6 +85,7 @@ func moveProcess(delta):
 					$AnimatedSprite.offset.x += 10
 				noActionMode()
 				key_down = true
+				Sound.shot()
 			
 			# nedela nic
 			if not key_down:

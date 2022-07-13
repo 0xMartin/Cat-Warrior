@@ -19,7 +19,7 @@ orbit_velocity_random = 0.0
 angle = 14.2
 angle_random = 0.5
 scale = 4.0
-color = Color( 0.635294, 0.627451, 0.615686, 1 )
+color = Color( 0.752941, 0.729412, 0.690196, 1 )
 
 [sub_resource type="CapsuleShape2D" id=23]
 radius = 22.0

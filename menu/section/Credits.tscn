@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/Minecraft.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/section/Credits.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 38.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 100, 619 ), Vector2( 100, -671 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 44, 619 ) ]
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 44.0
+margin_top = 619.0
+margin_right = 594.0
+margin_bottom = 1266.0
+custom_colors/font_color = Color( 0.85098, 0.85098, 0.85098, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Zori Cat Warrior
+
+Created by Martin Krcma
+Created in 2022
+
+Sounds:
+Jeckkech - jump
+NenadSimic - Menu Selection Click
+Kevin MacLeod - Krampus Workshop
+Tissman - machinegun
+Mrthenoronha - Shining 8 bit
+Jofae - 8 Bit Slam
+MentosLat - 8 bit Death sound
+Prof.Mudkip - 8-Bit explosion
+Kevin MacLeod - Circus of Freaks
+
+Textures:
+Spring Spring - Pixel Art - Cat doing some stuff
+Ansimuz - GothicVania - Church Pack
+Ansimuz - Mountain at Dusk Background
+KerteX_ - Wooden Box
+Aamatniekss - Free Pixelart Tileset - Cute Forest
+AnvilHouse - Gerbil Sprite
+William.Thompsonj - Wolf Animation
+Redshrike - 3-form RPG boss: \"Harlequin Epicycle.\""
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/Label")
+"anims/New Anim" = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

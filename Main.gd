@@ -3,14 +3,12 @@ extends Node2D
 var menu = preload("res://menu/Menu.tscn").instance()
 var game = preload("res://Game.tscn").instance()
 
-var arrow = load("res://assets/sword_arrow.png")
-
 
 func _ready():
 	# zobrazi hlavni menu
 	add_child(menu)
 	# zmeni kurzor
-	Input.set_custom_mouse_cursor(arrow)
+	Input.set_custom_mouse_cursor(GameConfig.arrow)
 
 # zobarazi menu
 func showMenu():

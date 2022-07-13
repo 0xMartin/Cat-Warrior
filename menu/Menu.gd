@@ -47,6 +47,7 @@ func showCredits():
 	removeAll()
 	add_child(credits)
 	credits.playAnimation()
+	credits.setEndCallBack(funcref(self, "showMain"))
 	
 	
 func removeAll():
@@ -63,3 +64,4 @@ func playGame(player_name):
 	
 func loadGame(save_file_path):
 	get_parent().loadGame(save_file_path)
+	

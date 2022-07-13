@@ -5,11 +5,13 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "New Anim"
-length = 40.0
+length = 55.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -17,10 +19,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 38.9 ),
+"times": PoolRealArray( 0, 54.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 100, 619 ), Vector2( 100, -671 ) ]
+"values": [ Vector2( 100, 619 ), Vector2( 100, -1200 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -46,35 +48,55 @@ script = ExtResource( 2 )
 [node name="Label" type="Label" parent="CanvasLayer"]
 margin_left = 44.0
 margin_top = 619.0
-margin_right = 594.0
-margin_bottom = 1266.0
+margin_right = 612.0
+margin_bottom = 1786.0
 custom_colors/font_color = Color( 0.85098, 0.85098, 0.85098, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Zori Cat Warrior
 
+
 Created by Martin Krcma
 Created in 2022
 
+
 Sounds:
+
 Jeckkech - jump
+
 NenadSimic - Menu Selection Click
+
 Kevin MacLeod - Krampus Workshop
+
 Tissman - machinegun
+
 Mrthenoronha - Shining 8 bit
+
 Jofae - 8 Bit Slam
+
 MentosLat - 8 bit Death sound
+
 Prof.Mudkip - 8-Bit explosion
+
 Kevin MacLeod - Circus of Freaks
 
+
+
 Textures:
+
 Spring Spring - Pixel Art - Cat doing some stuff
+
 Ansimuz - GothicVania - Church Pack
+
 Ansimuz - Mountain at Dusk Background
+
 KerteX_ - Wooden Box
 Aamatniekss - Free Pixelart Tileset - Cute Forest
+
 AnvilHouse - Gerbil Sprite
 William.Thompsonj - Wolf Animation
-Redshrike - 3-form RPG boss: \"Harlequin Epicycle.\""
+
+Redshrike - 3-form RPG boss: \"Harlequin Epicycle.\"
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasLayer/Label")

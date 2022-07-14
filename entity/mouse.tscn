@@ -54,7 +54,7 @@ position = Vector2( 49, 0 )
 enabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.7
+wait_time = 0.4
 
 [node name="health_bar" parent="." instance=ExtResource( 8 )]
 visible = false

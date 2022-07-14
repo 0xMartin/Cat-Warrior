@@ -12,6 +12,10 @@ export var speed = 200
 # intenzita skoku
 export var jump = 600
 
+# hit damage
+export var damage = 10
+
+
 # true -> je mozne ovladat postavu
 export var enabled = true
 
@@ -19,7 +23,9 @@ export var enabled = true
 var no_action = false
 var move = Vector2()
 
+
 var bullet_scene = preload("res://entity/bullet/bullet_player.tscn")
+var short_hit_scene = preload("res://entity/bullet/short_hit.tscn")
 
 
 func _physics_process(delta):
@@ -69,6 +75,14 @@ func moveProcess(delta):
 				$AnimatedSprite.offset.y = 2
 				noActionMode()
 				key_down = true
+				# vytvori instanci utoku z blizka (nevyditelny projektil s kratkym dosahem)
+				var hit = short_hit_scene.instance()
+				get_parent().add_child(hit)
+				hit.init(not $AnimatedSprite.flip_h, damage)
+				if $AnimatedSprite.flip_h:
+					hit.position = $shot_left.global_position
+				else:
+					hit.position = $shot_right.global_position
 				
 			# strelba
 			if Input.is_action_pressed("player_shot"):

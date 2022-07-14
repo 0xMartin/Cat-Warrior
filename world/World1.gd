@@ -6,4 +6,6 @@ func getSpawn(index):
 		return $spawn0.position
 	elif index == 1:
 		return $checkpoint1.position
+	elif index == 2:
+		return $checkpoint2.position
 	return null

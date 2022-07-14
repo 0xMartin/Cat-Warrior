@@ -15,9 +15,14 @@ export var jump = 600
 # hit damage
 export var damage = 10
 
-
 # true -> je mozne ovladat postavu
 export var enabled = true
+
+# otresy kamery
+export var cam_shake = false
+
+# sila otresu kamery
+export var cam_shake_power = 2.0
 
 
 var no_action = false
@@ -32,6 +37,8 @@ func _physics_process(delta):
 	if not GameConfig.physics_enabled:
 		return
 
+	if cam_shake:
+		cameraShakeProcess()
 	moveProcess(delta)
 	particleProcess(delta)
 	
@@ -41,6 +48,12 @@ func _physics_process(delta):
 		Sound.death()
 		queue_free()
 
+
+# zpracovani otresu kamery
+func cameraShakeProcess():
+	$Camera2D.set_offset(Vector2(rand_range(-cam_shake_power,
+	 cam_shake_power), rand_range(-cam_shake_power, cam_shake_power)))
+	
 
 # zpracovani pohybu hrace
 func moveProcess(delta):
@@ -134,7 +147,7 @@ func noActionMode():
 	no_action = true
 
 
-# (EVENT) po dokonceni animace navrat zpet do pohyboveho modu
+# (EVENT) po dokonceni nimace navrat zpet do pohyboveho modu
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.offset.x = 0
 	$AnimatedSprite.offset.y = 0
@@ -156,7 +169,22 @@ var explosion = preload("res://entity/fx/blood_hit.tscn")
 func hit(damage):
 	# ubere hraci zivoty
 	lives = max(0, lives - damage)
-	# exploze
+	# efekt zasahu
 	var ex = explosion.instance()
 	get_parent().add_child(ex)
 	ex.init(position, 40, 250, 6, 0.3, 0.2)
+	# zatreseni kamery
+	shakeWithCamera(0.5, 2)
+
+
+# otrese s kamerou urcitou silou po urcitou dobu
+func shakeWithCamera(time, power):
+	cam_shake_power = power
+	cam_shake = true
+	$CamShakeTimer.wait_time = time
+	$CamShakeTimer.start()
+
+# (EVENT) pro ukonceni treseni kamery
+func _on_CamShakeTimer_timeout():
+	cam_shake = false
+	$Camera2D.set_offset(Vector2(0, 0))

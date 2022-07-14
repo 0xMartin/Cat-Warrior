@@ -525,9 +525,18 @@ position = Vector2( 8775, 684 )
 [node name="mouse7" parent="." instance=ExtResource( 8 )]
 position = Vector2( 9053, 676 )
 
+[node name="mouse8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 10273, 687 )
+
+[node name="mouse9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 10345, 684 )
+
+[node name="mouse10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 10418, 684 )
+
 [node name="heart" parent="." instance=ExtResource( 9 )]
 position = Vector2( 7200, 703 )
 
 [node name="barrel" parent="." instance=ExtResource( 10 )]
-position = Vector2( 10169, 661 )
+position = Vector2( 10150, 636 )
 scale = Vector2( 2, 2 )

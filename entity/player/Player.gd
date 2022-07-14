@@ -36,8 +36,7 @@ func _physics_process(delta):
 	particleProcess(delta)
 	
 	# smrt: pad dolu nebo ztrata vsech hp
-	if position.y > 1000 or lives < 0:
-		lives = max(lives, 0)
+	if position.y > 1000 or lives <= 0:
 		GameConfig.current_player = null
 		Sound.death()
 		queue_free()
@@ -159,7 +158,7 @@ func disableCamera():
 var explosion = preload("res://entity/fx/blood_hit.tscn")
 func hit(damage):
 	# ubere hraci zivoty
-	lives -= damage
+	lives = max(0, lives - damage)
 	# exploze
 	var ex = explosion.instance()
 	get_parent().add_child(ex)

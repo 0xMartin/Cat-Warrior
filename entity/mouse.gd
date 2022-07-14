@@ -75,14 +75,16 @@ func actions(delta):
 					wait = rng.randi_range (60, 300)
 				wait -= 1
 			1:
-				move.x = -speed
 				if not $RayCastLeft.is_colliding() or is_on_wall() or wait <= 0:
 					state = 3	
+				else:
+					move.x = -speed
 				wait -= 1
 			2:
-				move.x = speed
 				if not $RayCastRight.is_colliding() or is_on_wall() or wait <= 0:
-					state = 3	
+					state = 3
+				else:
+					move.x = speed
 				wait -= 1
 			3:
 				move.x = 0
@@ -92,24 +94,25 @@ func actions(delta):
 				wait = rng.randi_range (60, 300)
 				
 		# vypocet vzadalenosti od hrace
-		var dist = GameConfig.current_player.position.distance_to(position)
-		if dist < 60:
-			# jsou blizko sebe => zacne utocit na hrace
-			$AnimatedSprite.play("attack")	
-			wait = 20
-			if $AttackTimer.time_left == 0:
-				$AttackTimer.start()
-		else:
-			$AttackTimer.stop()
-			# vyhledavani hrace
-			if dist < 350:
-				if GameConfig.current_player.position.x < position.x:
-					state = 1
-					$AnimatedSprite.flip_h = true
-				else:
-					state = 2
-					$AnimatedSprite.flip_h = false
-				$AnimatedSprite.play("walk")
+		if state != 3:
+			var dist = GameConfig.current_player.position.distance_to(position)
+			if dist < 60:
+				# jsou blizko sebe => zacne utocit na hrace
+				$AnimatedSprite.play("attack")	
+				wait = 20
+				if $AttackTimer.time_left == 0:
+					$AttackTimer.start()
+			else:
+				$AttackTimer.stop()
+				# vyhledavani hrace
+				if dist < 350:
+					if GameConfig.current_player.position.x < position.x:
+						state = 1
+						$AnimatedSprite.flip_h = true
+					else:
+						state = 2
+						$AnimatedSprite.flip_h = false
+					$AnimatedSprite.play("walk")
 
 # utok na hrace
 func _on_AttackTimer_timeout():

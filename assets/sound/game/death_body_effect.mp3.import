@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/death_body_effect.mp3-60ba6ddd96350bd03bc26b0bf455a4f6.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/game/death_body_effect.mp3"
+dest_files=[ "res://.import/death_body_effect.mp3-60ba6ddd96350bd03bc26b0bf455a4f6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

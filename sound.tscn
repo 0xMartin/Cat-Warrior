@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sound/game/hit.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/sound/game/player_death.mp3" type="AudioStream" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://assets/sound/game/jump.mp3" type="AudioStream" id=4]
 [ext_resource path="res://assets/sound/game/shot.mp3" type="AudioStream" id=5]
 [ext_resource path="res://assets/sound/game/checkpoint.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/sound/game/heart_take.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/sound/game/hit2.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/sound/game/hit3.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/sound/game/death_body_effect.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/sound/game/explosion.mp3" type="AudioStream" id=11]
 
 [node name="sound" type="Node2D"]
 script = ExtResource( 3 )
@@ -13,6 +18,14 @@ script = ExtResource( 3 )
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = 2.0
+
+[node name="Hit2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -2.0
+
+[node name="Hit3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 4.0
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -30,5 +43,14 @@ volume_db = -5.0
 stream = ExtResource( 6 )
 volume_db = -5.0
 
-[connection signal="finished" from="Hit" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="finished" from="Death" to="." method="_on_AudioStreamPlayer_finished"]
+[node name="HeartTake" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[node name="DeathBody" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 4.0
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 5.0

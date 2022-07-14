@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/heart_take.mp3-306fe6ba263a7ecfa1ff3241ccb11414.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/game/heart_take.mp3"
+dest_files=[ "res://.import/heart_take.mp3-306fe6ba263a7ecfa1ff3241ccb11414.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

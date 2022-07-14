@@ -77,11 +77,8 @@ func moveProcess(delta):
 				# vytvori instanci utoku z blizka (nevyditelny projektil s kratkym dosahem)
 				var hit = short_hit_scene.instance()
 				get_parent().add_child(hit)
-				hit.init(not $AnimatedSprite.flip_h, damage)
-				if $AnimatedSprite.flip_h:
-					hit.position = $shot_left.global_position
-				else:
-					hit.position = $shot_right.global_position
+				hit.init(not $AnimatedSprite.flip_h, damage, 0.3)
+				hit.position = position
 				
 			# strelba
 			if Input.is_action_pressed("player_shot"):

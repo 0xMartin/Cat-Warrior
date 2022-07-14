@@ -4,8 +4,8 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 
 export var x_power = 300
-export var y_max = 220
-export var y_min = 120
+export var y_max = 320
+export var y_min = 180
 
 func _ready():
 	rng.randomize()
@@ -45,6 +45,7 @@ func _ready():
 		Vector2(), 
 		Vector2(rng.randi_range(-x_power, x_power), rng.randi_range(-y_min, -y_max))
 		)
+	Sound.deathBody()
 
 
 func _on_Timer_timeout():

@@ -117,6 +117,7 @@ func actions(delta):
 # utok na hrace
 func _on_AttackTimer_timeout():
 	if GameConfig.current_player != null:
+		Sound.hit2()
 		GameConfig.current_player.hit(damage)	
 		
 		

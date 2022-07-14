@@ -2,21 +2,26 @@ extends KinematicBody2D
 
 
 export var gravity = 1000
+export var lives = 20
+export var damage = 4
 export var speed = 80
 
 
 var move = Vector2()
 var rng = RandomNumberGenerator.new()
+var death = preload("res://entity/fx/death_body_parts.tscn")
 
 
 # 0 - idle
 # 1 - walk left
 # 2 - walk right
-# 3 - attack
-# 4 - waiting
+# 3 - waiting
 var state = 0
-
 var wait = 0
+
+
+func _ready():
+	$health_bar.init(lives)
 
 
 func _physics_process(delta):
@@ -26,8 +31,25 @@ func _physics_process(delta):
 	# gravitace
 	move.y += min(gravity * delta, 1600);
 	
-	# akce
+	if lives > 0:
+		# akce
+		actions(delta)
+	else:
+		# smrt
+		move.x = 0
+		$AttackTimer.stop()
+		var d = death.instance()
+		d.position = position
+		get_parent().add_child(d)
+		queue_free()
+
+	# provedeni pohybu
+	move = move_and_slide(move, Vector2(0, -1))
+
+
+func actions(delta):
 	if is_on_floor():
+		# stavy
 		match state:
 			0:
 				move.x = 0
@@ -55,21 +77,47 @@ func _physics_process(delta):
 			1:
 				move.x = -speed
 				if not $RayCastLeft.is_colliding() or is_on_wall() or wait <= 0:
-					state = 4	
+					state = 3	
 				wait -= 1
 			2:
 				move.x = speed
 				if not $RayCastRight.is_colliding() or is_on_wall() or wait <= 0:
-					state = 4	
+					state = 3	
 				wait -= 1
 			3:
-				pass
-			4:
 				move.x = 0
 				state = 0
 				$AnimatedSprite.play("idle")
 				rng.randomize()
 				wait = rng.randi_range (60, 300)
-			
-	# provedeni pohybu
-	move = move_and_slide(move, Vector2(0, -1))
+				
+		# vypocet vzadalenosti od hrace
+		var dist = GameConfig.current_player.position.distance_to(position)
+		if dist < 60:
+			# jsou blizko sebe => zacne utocit na hrace
+			$AnimatedSprite.play("attack")	
+			wait = 20
+			if $AttackTimer.time_left == 0:
+				$AttackTimer.start()
+		else:
+			$AttackTimer.stop()
+			# vyhledavani hrace
+			if dist < 350:
+				if GameConfig.current_player.position.x < position.x:
+					state = 1
+					$AnimatedSprite.flip_h = true
+				else:
+					state = 2
+					$AnimatedSprite.flip_h = false
+				$AnimatedSprite.play("walk")
+
+# utok na hrace
+func _on_AttackTimer_timeout():
+	if GameConfig.current_player != null:
+		GameConfig.current_player.hit(damage)	
+		
+		
+# zasah
+func hit(damage):
+	lives = max(0, lives - damage)
+	$health_bar.setLive(lives)

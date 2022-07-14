@@ -123,16 +123,30 @@ func particleProcess(delta):
 func noActionMode():
 	no_action = true
 
-# po dokonceni animace navrat zpet do pohyboveho modu
+
+# (EVENT) po dokonceni animace navrat zpet do pohyboveho modu
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.offset.x = 0
 	$AnimatedSprite.offset.y = 0
 	no_action = false
 	
+	
 # nastavi kameru aktivni pro tuto entitu
 func enableCamera():
 	$Camera2D.current = true
 	
+	
 # nastavi kameru neaktivni pro tuto entitu
 func disableCamera():
 	$Camera2D.current = false
+	
+
+# nepritel tuto proceduro zavola pokud hraci udeluje poskozeni
+var explosion = preload("res://entity/fx/blood_hit.tscn")
+func hit(damage):
+	# ubere hraci zivoty
+	lives -= damage
+	# exploze
+	var ex = explosion.instance()
+	get_parent().add_child(ex)
+	ex.init(position, 40, 250, 6, 0.3, 0.2)

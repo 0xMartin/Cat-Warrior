@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/entity/mouse/Gerbil Whipe 1.png" type="Texture" id=1]
 [ext_resource path="res://assets/entity/mouse/Gerbil 1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/entity/mouse/Gerbil 3.png" type="Texture" id=5]
 [ext_resource path="res://assets/entity/mouse/Gerbil 2.png" type="Texture" id=6]
 [ext_resource path="res://entity/mouse.gd" type="Script" id=7]
+[ext_resource path="res://entity/fx/health_bar.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,7 +23,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "atack",
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -51,3 +52,13 @@ collide_with_areas = true
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2( 49, 0 )
 enabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="health_bar" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, -55 )
+scale = Vector2( 2, 1.5 )
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

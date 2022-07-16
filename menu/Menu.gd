@@ -8,6 +8,8 @@ var load_section = preload("res://menu/section/load_section.tscn").instance()
 var about_section = preload("res://menu/section/about_section.tscn").instance()
 var credits = preload("res://menu/section/Credits.tscn").instance()
 
+var action = -1
+var action_arg = ""
 
 func _ready():
 	add_child(main_section)
@@ -59,9 +61,27 @@ func removeAll():
 	
 	
 func playGame(player_name):
-	get_parent().createNewGame(player_name)
+	action = 0
+	action_arg = player_name
+	$CanvasLayer/transition.visible = true
+	$AnimationPlayer.play("fade_in")
 	
 	
 func loadGame(save_file_path):
-	get_parent().loadGame(save_file_path)
+	action = 1
+	action_arg = save_file_path
+	$CanvasLayer/transition.visible = true
+	$AnimationPlayer.play("fade_in")
 	
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match action:
+		0:
+			# akce pro vytvoreni nove hry
+			get_parent().createNewGame(action_arg)
+		1:
+			# akce pro nacteni hry
+			get_parent().loadGame(action_arg)
+	action = -1
+	$AnimationPlayer.play("RESET")
+	$CanvasLayer/transition.visible = false

@@ -47,13 +47,13 @@ func _physics_process(delta):
 	# smrt: pad dolu nebo ztrata vsech hp
 	if (position.y > 1000 or lives <= 0) and not killed:
 		killed = true
-		$CollisionShape2D.disabled = true		
+		$CollisionShape2D.disabled = true
 		var d = death.instance()
 		d.position = position
 		get_parent().add_child(d)
 		visible = false
 		if position.y > 1000:
-			$KillTimer.wait_time = 0.4
+			$KillTimer.wait_time = 1
 		$KillTimer.start()
 
 

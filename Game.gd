@@ -3,6 +3,7 @@ extends Node2D
 var player_scene = preload("res://entity/player/Player.tscn")
 
 var world1_scene = preload("res://world/World1.tscn")
+var world2_scene = preload("res://world/World2.tscn")
 
 var in_game_menu = preload("res://menu/section/in_game_menu.tscn").instance()
 var game_over_menu = preload("res://menu/section/game_over_menu.tscn").instance()
@@ -21,6 +22,13 @@ func _physics_process(delta):
 			remove_child(in_game_menu)
 			add_child(game_over_menu)
 			Sound.death()
+			
+	# postup do dalsiho levelu (pokud je nastavena globalni properta)
+	if GameConfig.next_level_request:
+		GameConfig.next_level_request = false
+		GameConfig.player_save.nextWorld()
+		loadWorld(GameConfig.player_save.world_index)
+		setPlayerPosition(0)
 		
 	# zobrazeni/skryje in game menu
 	if Input.is_action_pressed("esc"):
@@ -39,10 +47,18 @@ func _physics_process(delta):
 
 # nacte jiny svet podle indexu (0, 1, ... n)
 func loadWorld(index):
-	if index == 0:
-		# vytvori instanci sveta a pridaho do nadrazene sceny "Main"
-		current_world = world1_scene.instance()
-		add_child(current_world)
+	# zatmavi screen cernym prechodem
+	$CanvasLayer/transition.color = Color.black
+	# odstrani aktualne nacteny svet
+	if current_world != null:
+		remove_child(current_world)
+	# vytvori instanci sveta a pridaho do nadrazene sceny "Main"	
+	match index:
+		0:
+			current_world = world1_scene.instance()
+		1:
+			current_world = world2_scene.instance()
+	add_child(current_world)
 	
 	
 # nastavi hraci novou pozici ve svete. index (0, 1, ... n) odpovida urcitemu spawnpointu v urcitem svete
@@ -51,15 +67,18 @@ func setPlayerPosition(spawnpoint_index):
 	# musi byt naloadovany nejaky svet
 	if current_world == null:
 		return
-	# podle indexu spawnpoint navrati svet nejakou pozici ve svete
-	var position = current_world.getSpawn(spawnpoint_index)
-	# pokud hrac neexsituje vytvori noveho
-	if GameConfig.current_player == null:
-		GameConfig.current_player = player_scene.instance()
-		add_child(GameConfig.current_player)
+	# pokud hrac ve svete existuje tak ho odstrani
+	if GameConfig.current_player != null:
+		remove_child(GameConfig.current_player)
+	# vytvori instanci noveho hrac
+	GameConfig.current_player = player_scene.instance()
+	add_child(GameConfig.current_player)
 	# hraci nastavi pozici ve svete
+	var position = current_world.getSpawn(spawnpoint_index)
 	if position != null:
 		GameConfig.current_player.position = position
+	# zobrazni fade out prechodu
+	$CanvasLayer/AnimationPlayer.play("fade_out")
 	
 		
 # skryje in game menu
@@ -94,6 +113,7 @@ func quitGame():
 	hideGameOverMenu()
 	# Main -> pozadavek na zobrazeni menu
 	get_parent().showMenu()
+
 
 func storeSave(player_save):
 	var file = File.new()

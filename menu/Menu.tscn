@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/zori_cat.png" type="Texture" id=2]
@@ -10,6 +10,51 @@
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,6 +93,12 @@ custom_colors/font_color = Color( 0.85098, 0.85098, 0.85098, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Version: 1.0.0"
 
+[node name="transition" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0 )
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = 1.0
@@ -57,5 +108,12 @@ autoplay = true
 stream = ExtResource( 4 )
 volume_db = 6.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/transition")
+anims/RESET = SubResource( 2 )
+anims/fade_in = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
+
 [connection signal="mouse_entered" from="CanvasLayer/ZoriCat/Control" to="CanvasLayer/ZoriCat" method="_on_Control_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ZoriCat/Control" to="CanvasLayer/ZoriCat" method="_on_Control_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

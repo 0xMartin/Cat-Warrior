@@ -20,3 +20,8 @@ func loadFromJSON(json):
 	player_name = json.player_name
 	world_index = json.world_index
 	spawnpoint_index = json.spawnpoint_index
+	
+
+func nextWorld():
+	world_index = min(world_index + 1, 18)
+	spawnpoint_index = 0

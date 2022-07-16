@@ -29,30 +29,6 @@ height = 42.0
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 38, 43 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 36, 48 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 74, 52 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 4 )
-region = Rect2( 74, 0, 74, 52 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 4 )
-region = Rect2( 148, 0, 74, 52 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 4 )
-region = Rect2( 222, 0, 74, 52 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 4 )
-region = Rect2( 296, 0, 74, 52 )
-
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 85, 54 )
@@ -85,6 +61,30 @@ region = Rect2( 510, 0, 85, 54 )
 atlas = ExtResource( 5 )
 region = Rect2( 595, 0, 85, 54 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 36, 48 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 74, 52 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 74, 0, 74, 52 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 4 )
+region = Rect2( 148, 0, 74, 52 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 4 )
+region = Rect2( 222, 0, 74, 52 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 296, 0, 74, 52 )
+
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
 region = Rect2( 36, 0, 36, 48 )
@@ -112,6 +112,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "hit",
+"speed": 11.0
+}, {
 "frames": [ SubResource( 9 ) ],
 "loop": false,
 "name": "jump",
@@ -120,11 +125,6 @@ animations = [ {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "shot",
-"speed": 11.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "hit",
 "speed": 11.0
 }, {
 "frames": [ SubResource( 8 ) ],
@@ -175,5 +175,9 @@ playing = true
 [node name="CamShakeTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="CamShakeTimer" to="." method="_on_CamShakeTimer_timeout"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]

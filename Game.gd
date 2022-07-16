@@ -20,6 +20,7 @@ func _physics_process(delta):
 			GameConfig.game_over = true
 			remove_child(in_game_menu)
 			add_child(game_over_menu)
+			Sound.death()
 		
 	# zobrazeni/skryje in game menu
 	if Input.is_action_pressed("esc"):

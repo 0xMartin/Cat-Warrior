@@ -39,3 +39,7 @@ func heartTake():
 	
 func explosion():
 	$Explosion.play()
+	
+
+func firehit():
+	$FireHit.play()

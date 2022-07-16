@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fire_hit.mp3-3b3aebda49acca981225071f98bb654f.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/game/fire_hit.mp3"
+dest_files=[ "res://.import/fire_hit.mp3-3b3aebda49acca981225071f98bb654f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

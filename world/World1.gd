@@ -1,5 +1,6 @@
 extends Node2D
 
+
 # navrati spawnpoint pro tento svet
 func getSpawn(index):
 	if index == 0:

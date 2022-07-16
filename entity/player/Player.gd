@@ -25,16 +25,18 @@ export var cam_shake = false
 export var cam_shake_power = 2.0
 
 
+var killed = false
 var no_action = false
 var move = Vector2()
 
 
 var bullet_scene = preload("res://entity/bullet/bullet_player.tscn")
 var short_hit_scene = preload("res://entity/bullet/short_hit.tscn")
+var death = preload("res://entity/fx/death_body_parts.tscn")
 
 
 func _physics_process(delta):
-	if not GameConfig.physics_enabled:
+	if not GameConfig.physics_enabled or killed:
 		return
 
 	if cam_shake:
@@ -43,10 +45,16 @@ func _physics_process(delta):
 	particleProcess(delta)
 	
 	# smrt: pad dolu nebo ztrata vsech hp
-	if position.y > 1000 or lives <= 0:
-		GameConfig.current_player = null
-		Sound.death()
-		queue_free()
+	if (position.y > 1000 or lives <= 0) and not killed:
+		killed = true
+		$CollisionShape2D.disabled = true		
+		var d = death.instance()
+		d.position = position
+		get_parent().add_child(d)
+		visible = false
+		if position.y > 1000:
+			$KillTimer.wait_time = 0.4
+		$KillTimer.start()
 
 
 # zpracovani otresu kamery
@@ -167,6 +175,8 @@ func disableCamera():
 # nepritel tuto proceduro zavola pokud hraci udeluje poskozeni
 var explosion = preload("res://entity/fx/blood_hit.tscn")
 func hit(damage):
+	if killed:
+		return
 	# ubere hraci zivoty
 	lives = max(0, lives - damage)
 	# efekt zasahu
@@ -188,3 +198,9 @@ func shakeWithCamera(time, power):
 func _on_CamShakeTimer_timeout():
 	cam_shake = false
 	$Camera2D.set_offset(Vector2(0, 0))
+
+
+# (EVENT) zabije hrace az se zpozdenim => aby byla videt jeho smrt
+func _on_KillTimer_timeout():
+	GameConfig.current_player = null
+	queue_free()

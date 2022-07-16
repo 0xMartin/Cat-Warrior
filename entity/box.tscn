@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="box" type="RigidBody2D" groups=["hit_enabled"]]
+[node name="box" type="RigidBody2D"]
 mass = 88.61
 gravity_scale = 3.29
 contact_monitor = true

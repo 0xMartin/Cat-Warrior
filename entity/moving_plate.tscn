@@ -68,9 +68,17 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -0.32922, 13.9877, 32.6584, 3.95062 )
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite_right" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 59, 9, 5, 12 )
+
+[node name="Sprite_left" type="Sprite" parent="."]
+position = Vector2( -8, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+flip_h = true
 region_enabled = true
 region_rect = Rect2( 59, 9, 5, 12 )
 

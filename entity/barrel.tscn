@@ -19,7 +19,7 @@ color = Color( 1, 0.431373, 0.121569, 1 )
 [sub_resource type="CircleShape2D" id=3]
 radius = 250.0
 
-[node name="barrel" type="RigidBody2D" groups=["hit_enabled"]]
+[node name="barrel" type="RigidBody2D"]
 mass = 4.0
 gravity_scale = 4.0
 script = ExtResource( 2 )

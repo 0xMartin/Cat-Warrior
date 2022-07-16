@@ -53,7 +53,7 @@ color = Color( 0.466667, 0.592157, 0.976471, 1 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 91.5 )
 
-[node name="spawner" type="KinematicBody2D" groups=["hit_enabled"]]
+[node name="spawner" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 2 )
@@ -69,7 +69,7 @@ process_material = SubResource( 7 )
 modulate = Color( 1, 1, 1.5, 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]

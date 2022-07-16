@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/spawner.png" type="Texture" id=1]
+[ext_resource path="res://entity/spawner.gd" type="Script" id=2]
+[ext_resource path="res://entity/fx/health_bar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 1
+emission_sphere_radius = 10.62
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 99, 0 )
+initial_velocity = 10.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+color = Color( 0.458824, 0.458824, 0.458824, 1 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 96 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 96 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 96 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 96 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 120.0
+orbit_velocity = 0.8
+orbit_velocity_random = 0.0
+scale = 4.0
+color = Color( 0.466667, 0.592157, 0.976471, 1 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 91.5 )
+
+[node name="spawner" type="KinematicBody2D" groups=["hit_enabled"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 2 )
+entity = "res://entity/mouse.tscn"
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 1, -38 )
+amount = 10
+lifetime = 1.5
+process_material = SubResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1.5, 1 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 5 )
+frame = 2
+playing = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, -69 )
+amount = 35
+process_material = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2.5 )
+shape = SubResource( 8 )
+
+[node name="health_bar" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0, -110 )
+scale = Vector2( 2, 1.5 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

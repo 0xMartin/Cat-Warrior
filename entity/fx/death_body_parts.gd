@@ -46,11 +46,12 @@ func _ready():
 		Vector2(rng.randi_range(-x_power, x_power), rng.randi_range(-y_min, -y_max))
 		)
 	Sound.deathBody()
+	$AnimationPlayer.play("Visibility_animation")
 
 
 func _on_Timer_timeout():
 	$Particles2D.emitting = false
 
 
-func _on_TimerDeath_timeout():
+func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()

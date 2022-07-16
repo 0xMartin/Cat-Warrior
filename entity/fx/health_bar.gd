@@ -6,6 +6,7 @@ var max_lives = 0
 
 func init(_max_lives):
 	max_lives = _max_lives
+	visible = false
 
 
 func setLive(live):

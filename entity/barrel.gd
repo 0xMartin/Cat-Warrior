@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-export var damage = 150
+export var damage = 250
 
 
 var explosion = preload("res://entity/fx/explosion.tscn").instance()

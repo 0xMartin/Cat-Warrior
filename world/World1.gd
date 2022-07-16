@@ -12,3 +12,7 @@ func getSpawn(index):
 	elif index == 3:
 		return $checkpoint3.position
 	return null
+	
+	
+func getName():
+	return "Zacatek cesty"

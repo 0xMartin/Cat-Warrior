@@ -17,3 +17,6 @@ var player_save = load("save.gd").new()
 
 # true -> prejde do dalsiho levelu
 var next_level_request = false
+
+# aktualni nazev sveta
+var current_world_name = ""

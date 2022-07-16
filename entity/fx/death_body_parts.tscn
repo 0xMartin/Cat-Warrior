@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entity/fx/death_body_parts.gd" type="Script" id=1]
 [ext_resource path="res://assets/death_body_parts.png" type="Texture" id=2]
@@ -33,6 +33,37 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 6.0
 color = Color( 0.803922, 0.117647, 0.105882, 1 )
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Visibility_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8.7, 9.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="death_body_parts" type="Node2D"]
 script = ExtResource( 1 )
@@ -169,11 +200,6 @@ wait_time = 0.4
 one_shot = true
 autostart = true
 
-[node name="TimerDeath" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
-autostart = true
-
 [node name="Rigid_Bones4" type="RigidBody2D" parent="."]
 mass = 4.0
 gravity_scale = 4.5
@@ -187,5 +213,9 @@ region_rect = Rect2( 32.9288, 5.6066, 27.9719, 18.4026 )
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 9 )
+anims/Visibility_animation = SubResource( 8 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="TimerDeath" to="." method="_on_TimerDeath_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

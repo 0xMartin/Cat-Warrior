@@ -1,12 +1,18 @@
 extends Node2D
 
+# hrac
 var player_scene = preload("res://entity/player/Player.tscn")
 
+# herni svety
 var world1_scene = preload("res://world/World1.tscn")
 var world2_scene = preload("res://world/World2.tscn")
 
+# menu ve hre
 var in_game_menu = preload("res://menu/section/in_game_menu.tscn").instance()
+
+# menu ktere se zobraz po smrti hrace
 var game_over_menu = preload("res://menu/section/game_over_menu.tscn").instance()
+
 
 var current_world = null
 var in_game_menu_visible = false
@@ -59,6 +65,7 @@ func loadWorld(index):
 		1:
 			current_world = world2_scene.instance()
 	add_child(current_world)
+	GameConfig.current_world_name = current_world.getName()
 	
 	
 # nastavi hraci novou pozici ve svete. index (0, 1, ... n) odpovida urcitemu spawnpointu v urcitem svete

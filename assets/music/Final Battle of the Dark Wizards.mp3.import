@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Final Battle of the Dark Wizards.mp3-9815a1e497310cebc62dca130328ed26.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Final Battle of the Dark Wizards.mp3"
+dest_files=[ "res://.import/Final Battle of the Dark Wizards.mp3-9815a1e497310cebc62dca130328ed26.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

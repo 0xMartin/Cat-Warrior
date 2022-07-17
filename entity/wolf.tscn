@@ -91,8 +91,9 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=34]
-extents = Vector2( 51, 30 )
+[sub_resource type="CapsuleShape2D" id=34]
+radius = 30.0
+height = 42.0
 
 [node name="wolf" type="KinematicBody2D"]
 collision/safe_margin = 0.01
@@ -106,6 +107,7 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
+rotation = 1.5708
 shape = SubResource( 34 )
 
 [node name="RayCastLeft2" type="RayCast2D" parent="."]

@@ -37,11 +37,9 @@ func _on_Timer_timeout():
 	rng.randomize()
 	# obnovi pocet entit
 	var to_remove = []
-	var i = 0
-	for e in entity_list:
-		if not weakref(e).get_ref():
-			to_remove.append(i)
-			i = i + 1
+	for j in range(entity_list.size()):
+		if not weakref(entity_list[j]).get_ref():
+			to_remove.append(j)
 			cnt = cnt - 1
 	for j in to_remove:
 		entity_list.remove(j)

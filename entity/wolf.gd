@@ -32,7 +32,7 @@ func _physics_process(delta):
 	# gravitace
 	move.y += min(gravity * delta, 1600);
 	
-	if lives > 0:
+	if lives > 0 and position.y < 1000:
 		# akce
 		actions(delta)
 	else:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Curse of the Scarab.mp3-1064337b1ccfef34ea3c28b2b6fbba27.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Curse of the Scarab.mp3"
+dest_files=[ "res://.import/Curse of the Scarab.mp3-1064337b1ccfef34ea3c28b2b6fbba27.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

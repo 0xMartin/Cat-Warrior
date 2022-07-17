@@ -4,10 +4,13 @@ extends Node2D
 var player_scene = preload("res://entity/player/Player.tscn")
 
 # herni svety
+
+# grass land
 var world1_scene = preload("res://world/World1.tscn")
 var world2_scene = preload("res://world/World2.tscn")
 var world3_scene = preload("res://world/World3.tscn")
 var world4_scene = preload("res://world/World4.tscn")
+var world5_scene = preload("res://world/World5.tscn")
 
 
 # menu ve hre
@@ -71,6 +74,8 @@ func loadWorld(index):
 			current_world = world3_scene.instance()
 		3:
 			current_world = world4_scene.instance()
+		4:
+			current_world = world5_scene.instance()
 	add_child(current_world)
 	GameConfig.current_world_name = current_world.getName()
 	

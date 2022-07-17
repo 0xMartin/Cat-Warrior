@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://world/bg_parallax1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/world/Decors1.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://entity/barrel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entity/portal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://entity/box.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/fonts/Minecraft.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="Environment" id=45]
 background_mode = 4
@@ -386,6 +387,14 @@ polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 7/shapes = [  ]
 7/z_index = 0
 
+[sub_resource type="Theme" id=57]
+
+[sub_resource type="DynamicFont" id=58]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
 [node name="world2" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -620,3 +629,15 @@ position = Vector2( 19184, 412 )
 
 [node name="box3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 19597, 310 )
+
+[node name="label1" type="Label" parent="."]
+margin_left = 6121.0
+margin_top = 534.0
+margin_right = 6404.0
+margin_bottom = 613.0
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 57 )
+custom_fonts/font = SubResource( 58 )
+text = "Spawner
+V urcitych intervalech spawnuje
+nepratele."

@@ -1,7 +1,7 @@
 extends Area2D
 
 export var speed = 600
-export var damage = 4
+export var damage = 5
 
 var move = Vector2()
 var right = false

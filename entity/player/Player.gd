@@ -13,7 +13,7 @@ export var speed = 200
 export var jump = 600
 
 # hit damage
-export var damage = 10
+export var damage = 14
 
 # true -> je mozne ovladat postavu
 export var enabled = true

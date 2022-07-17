@@ -13,6 +13,13 @@ func hit(damage):
 		$Timer.start()
 
 
+func _physics_process(delta):
+	if not GameConfig.physics_enabled:
+		$Timer.paused = true 
+	else:
+		$Timer.paused = false 
+
+
 func _on_Timer_timeout():
 	get_parent().add_child(explosion)
 	explosion.init(position, Color.orangered, 750, 900, 8, 0.3, 0.25)

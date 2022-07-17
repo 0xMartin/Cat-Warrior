@@ -44,6 +44,7 @@ local_coords = false
 process_material = SubResource( 2 )
 
 [node name="Explosion" type="Area2D" parent="."]
+collision_layer = 7
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]

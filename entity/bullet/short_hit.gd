@@ -6,6 +6,7 @@ export var damage = 0
 
 var move = Vector2()
 var run = false
+var bullet_owner = null
 var right = false
 var explosion = preload("res://entity/fx/explosion.tscn").instance()
 
@@ -13,7 +14,8 @@ var explosion = preload("res://entity/fx/explosion.tscn").instance()
 # _right -> smer
 # _damage -> poskozeni
 # wait_time -> cas kdy ceka nez zasahne (pokud uder ma byt udelen opozdene po aktivovani utoku z blizka)
-func init(_right, _damage, wait_time):
+func init(_bullet_owner, _right, _damage, wait_time):
+	bullet_owner = _bullet_owner
 	right = _right
 	damage = _damage
 	$TimerStart.wait_time = wait_time
@@ -30,7 +32,7 @@ func _physics_process(delta):
 
 # kolize
 func _on_short_hit_body_entered(body):
-	if body.is_in_group("hit_enabled"):
+	if bullet_owner != body and not body.is_in_group("not_hit"):
 		hit()
 		if body.has_method("hit"):
 			body.hit(damage)

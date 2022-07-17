@@ -98,7 +98,7 @@ func moveProcess(delta):
 				# vytvori instanci utoku z blizka (nevyditelny projektil s kratkym dosahem)
 				var hit = short_hit_scene.instance()
 				get_parent().add_child(hit)
-				hit.init(not $AnimatedSprite.flip_h, damage, 0.3)
+				hit.init(self, not $AnimatedSprite.flip_h, damage, 0.3)
 				hit.position = position
 				
 			# strelba
@@ -107,7 +107,7 @@ func moveProcess(delta):
 				$AnimatedSprite.offset.y -= 4
 				var bullet = bullet_scene.instance()
 				get_parent().add_child(bullet)
-				bullet.init(not $AnimatedSprite.flip_h)
+				bullet.init(self, not $AnimatedSprite.flip_h)
 				if $AnimatedSprite.flip_h:
 					bullet.position = $shot_left.global_position
 					$AnimatedSprite.offset.x -= 10

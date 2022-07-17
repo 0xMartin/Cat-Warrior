@@ -6,6 +6,7 @@ var player_scene = preload("res://entity/player/Player.tscn")
 # herni svety
 var world1_scene = preload("res://world/World1.tscn")
 var world2_scene = preload("res://world/World2.tscn")
+var world3_scene = preload("res://world/World3.tscn")
 
 # menu ve hre
 var in_game_menu = preload("res://menu/section/in_game_menu.tscn").instance()
@@ -64,6 +65,8 @@ func loadWorld(index):
 			current_world = world1_scene.instance()
 		1:
 			current_world = world2_scene.instance()
+		2:
+			current_world = world3_scene.instance()
 	add_child(current_world)
 	GameConfig.current_world_name = current_world.getName()
 	

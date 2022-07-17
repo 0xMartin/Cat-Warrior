@@ -32,6 +32,8 @@ func _ready():
 	
 
 func _on_Timer_timeout():
+	if not GameConfig.physics_enabled:
+		return
 	rng.randomize()
 	# obnovi pocet entit
 	var to_remove = []
@@ -55,7 +57,7 @@ func spawnEntity(dist):
 	var ent = entity_scene.instance()
 	entity_list.append(ent)
 	ent.position.x = position.x + dist
-	ent.position.y = position.y + 30
+	ent.position.y = position.y + 50
 	parent.add_child(ent)
 	cnt = cnt + 1
 	

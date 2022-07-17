@@ -76,6 +76,7 @@ esc={
 2d_physics/layer_1="Player + bullets + world obj"
 2d_physics/layer_2="Enemies"
 2d_physics/layer_3="Hit enabled objects [not blocking move]"
+2d_physics/layer_4="Items"
 
 [physics]
 

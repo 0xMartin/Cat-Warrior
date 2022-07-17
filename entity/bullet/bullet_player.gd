@@ -5,11 +5,13 @@ export var damage = 4
 
 var move = Vector2()
 var right = false
+var bullet_owner = null
 var particles = preload("res://entity/fx/bullet_particles.tscn").instance()
 var explosion = preload("res://entity/fx/explosion.tscn").instance()
 
 
-func init(_right):
+func init(_bullet_owner, _right):
+	bullet_owner = _bullet_owner
 	right = _right
 	if not right:
 		speed *= -1
@@ -35,7 +37,7 @@ func _on_Timer_timeout():
 
 # kolize
 func _on_bullet_player_body_entered(body):
-	if not body.is_in_group("player_group"):
+	if bullet_owner != body and not body.is_in_group("not_hit"):
 		hit()
 		if body.has_method("hit"):
 			body.hit(damage)

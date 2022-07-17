@@ -15,6 +15,7 @@ func _ready():
 func showMenu():
 	remove_child(game)
 	add_child(menu)
+	menu.showMain()
 
 
 # zobrazi hru

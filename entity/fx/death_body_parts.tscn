@@ -68,7 +68,9 @@ tracks/0/keys = {
 [node name="death_body_parts" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Rigid_Skull" type="RigidBody2D" parent="."]
+[node name="Rigid_Skull" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -81,7 +83,9 @@ region_rect = Rect2( 1.09235, 8.18296, 29.8122, 16.9304 )
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
-[node name="Rigid_Bones" type="RigidBody2D" parent="."]
+[node name="Rigid_Bones" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -94,7 +98,9 @@ region_rect = Rect2( 32.9288, 5.6066, 27.9719, 18.4026 )
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
 
-[node name="Rigid_Bones2" type="RigidBody2D" parent="."]
+[node name="Rigid_Bones2" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -108,7 +114,9 @@ region_rect = Rect2( 33.849, 27.8703, 27.2358, 14.7221 )
 position = Vector2( 0, -1 )
 shape = SubResource( 3 )
 
-[node name="Rigid_Meat" type="RigidBody2D" parent="."]
+[node name="Rigid_Meat" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -121,7 +129,9 @@ region_rect = Rect2( 5.87705, 28.9744, 18.2186, 12.3297 )
 position = Vector2( -0.5, 0 )
 shape = SubResource( 4 )
 
-[node name="Rigid_Meat2" type="RigidBody2D" parent="."]
+[node name="Rigid_Meat2" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -135,7 +145,9 @@ region_rect = Rect2( 0.198601, 45.9263, 30.3048, 15.2842 )
 position = Vector2( 0, 0.5 )
 shape = SubResource( 5 )
 
-[node name="Rigid_Guts" type="RigidBody2D" parent="."]
+[node name="Rigid_Guts" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -148,7 +160,9 @@ region_rect = Rect2( 31.821, 45.9263, 31.0954, 16.8653 )
 position = Vector2( -1, 0 )
 shape = SubResource( 6 )
 
-[node name="Rigid_Bones3" type="RigidBody2D" parent="."]
+[node name="Rigid_Bones3" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -162,7 +176,9 @@ region_rect = Rect2( 33.849, 27.8703, 27.2358, 14.7221 )
 position = Vector2( 0, -1 )
 shape = SubResource( 3 )
 
-[node name="Rigid_Meat3" type="RigidBody2D" parent="."]
+[node name="Rigid_Meat3" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -175,7 +191,9 @@ region_rect = Rect2( 5.87705, 28.9744, 18.2186, 12.3297 )
 position = Vector2( -0.5, 0 )
 shape = SubResource( 4 )
 
-[node name="Rigid_Meat4" type="RigidBody2D" parent="."]
+[node name="Rigid_Meat4" type="RigidBody2D" parent="." groups=["not_hit"]]
+collision_layer = 8
+collision_mask = 9
 mass = 4.0
 gravity_scale = 4.5
 
@@ -188,19 +206,7 @@ region_rect = Rect2( 5.87705, 28.9744, 18.2186, 12.3297 )
 position = Vector2( -0.5, 0 )
 shape = SubResource( 4 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 0, -5 )
-amount = 160
-lifetime = 0.4
-local_coords = false
-process_material = SubResource( 7 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
-one_shot = true
-autostart = true
-
-[node name="Rigid_Bones4" type="RigidBody2D" parent="."]
+[node name="Rigid_Bones4" type="RigidBody2D" parent="." groups=["not_hit"]]
 mass = 4.0
 gravity_scale = 4.5
 
@@ -212,6 +218,18 @@ region_rect = Rect2( 32.9288, 5.6066, 27.9719, 18.4026 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rigid_Bones4"]
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, -5 )
+amount = 160
+lifetime = 0.4
+local_coords = false
+process_material = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 9 )

@@ -36,9 +36,10 @@ func _on_Timer_timeout():
 
 # kolize
 func _on_arrow_body_entered(body):
-	hit()
-	if body.has_method("hit"):
-		body.hit(damage)
+	if not body.is_in_group("not_hit"):
+		hit()
+		if body.has_method("hit"):
+			body.hit(damage)
 
 
 # zasah: destruktor + exploze

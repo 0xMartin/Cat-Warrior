@@ -135,5 +135,6 @@ func _on_AttackTimer_timeout():
 		
 # zasah
 func hit(damage):
+	wait = 1
 	lives = max(0, lives - damage)
 	$health_bar.setLive(lives)

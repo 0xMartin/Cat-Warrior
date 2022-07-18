@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Oppressive Gloom.mp3-8a1112f4d9946d969ec4dedfe446301d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Oppressive Gloom.mp3"
+dest_files=[ "res://.import/Oppressive Gloom.mp3-8a1112f4d9946d969ec4dedfe446301d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

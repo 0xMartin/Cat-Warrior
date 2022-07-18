@@ -15,7 +15,7 @@
 [ext_resource path="res://entity/spawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entity/door.tscn" type="PackedScene" id=14]
 [ext_resource path="res://entity/barrel.tscn" type="PackedScene" id=15]
-[ext_resource path="res://entity/crow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://entity/skeleton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Environment" id=66]
 background_mode = 4
@@ -296,9 +296,6 @@ index = 2
 position = Vector2( 17177, 654 )
 index = 3
 
-[node name="crow" parent="." instance=ExtResource( 16 )]
-position = Vector2( 16900, 531 )
-
 [node name="trap_gun" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3460, 730 )
 
@@ -382,15 +379,6 @@ position = Vector2( 8381, 662 )
 [node name="wolf7" parent="." instance=ExtResource( 7 )]
 position = Vector2( 11562, 681 )
 
-[node name="wolf8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 19344, 672 )
-
-[node name="wolf9" parent="." instance=ExtResource( 7 )]
-position = Vector2( 19588, 670 )
-
-[node name="wolf10" parent="." instance=ExtResource( 7 )]
-position = Vector2( 19747, 670 )
-
 [node name="barrel" parent="." instance=ExtResource( 15 )]
 position = Vector2( 18876, 691 )
 
@@ -446,3 +434,6 @@ position = Vector2( 19201, 694 )
 
 [node name="heart11" parent="." instance=ExtResource( 11 )]
 position = Vector2( 19241, 694 )
+
+[node name="skeleton" parent="." instance=ExtResource( 16 )]
+position = Vector2( 19718, 669 )

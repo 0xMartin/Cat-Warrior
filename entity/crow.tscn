@@ -45,7 +45,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -59,5 +59,20 @@ wait_time = 0.5
 visible = false
 position = Vector2( 0, -64 )
 scale = Vector2( 2, 1.5 )
+
+[node name="Down" type="RayCast2D" parent="."]
+position = Vector2( 0, 15 )
+enabled = true
+cast_to = Vector2( 0, 150 )
+
+[node name="Left" type="RayCast2D" parent="."]
+position = Vector2( 0, 15 )
+enabled = true
+cast_to = Vector2( -100, 0 )
+
+[node name="Right" type="RayCast2D" parent="."]
+position = Vector2( 0, 15 )
+enabled = true
+cast_to = Vector2( 100, 0 )
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

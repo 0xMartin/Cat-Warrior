@@ -90,4 +90,9 @@ visible = false
 position = Vector2( 0, -110 )
 scale = Vector2( 2, 1.5 )
 
+[node name="TimerInit" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerInit" to="." method="_on_TimerInit_timeout"]

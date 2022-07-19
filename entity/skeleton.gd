@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 
 export var gravity = 1000
-export var lives = 45
+export var lives = 50
 export var damage = 10
-export var speed = 80
+export var speed = 85
 
 
 var move = Vector2()
@@ -71,9 +71,9 @@ func actions(delta):
 				wait = rng.randi_range(60, 300)
 			else:
 				$AnimatedSprite.play("walk")
-				$AnimatedSprite.flip_h = false
+				$AnimatedSprite.flip_h = true
 				move.x = -speed
-				if dist < 300:
+				if dist < 350:
 					state = 3
 		2:
 			# doprava
@@ -82,9 +82,9 @@ func actions(delta):
 				wait = rng.randi_range(60, 300)
 			else:
 				$AnimatedSprite.play("walk")
-				$AnimatedSprite.flip_h = true
+				$AnimatedSprite.flip_h = false
 				move.x = speed
-				if dist < 300:
+				if dist < 350:
 					state = 3
 		3:
 			# dojit k hraci
@@ -104,7 +104,7 @@ func actions(delta):
 					$AnimatedSprite.play("idle")	
 			if dist < 100:
 				state = 4
-			elif dist > 300:
+			elif dist > 350:
 				state = 0
 				wait = rng.randi_range(60, 300)
 		4:
@@ -119,6 +119,8 @@ func actions(delta):
 # zasah
 func hit(damage):
 	lives = max(0, lives - damage)
+	if state != 4:
+		state = 3
 	$health_bar.setLive(lives)
 
 

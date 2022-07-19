@@ -15,6 +15,9 @@ export var jump = 600
 # hit damage
 export var damage = 14
 
+# poskozeni strely
+export var bullet_damage = 5
+
 # true -> je mozne ovladat postavu
 export var enabled = true
 
@@ -23,6 +26,12 @@ export var cam_shake = false
 
 # sila otresu kamery
 export var cam_shake_power = 2.0
+
+# cas kdy kdy bude hrac davat vyssi poskozeni
+var power_boost_time = 0
+
+# cas kdy kdy bude hrac dostavat mensi pozkozeni
+var defense_boost_time = 0
 
 
 var killed = false
@@ -98,7 +107,11 @@ func moveProcess(delta):
 				# vytvori instanci utoku z blizka (nevyditelny projektil s kratkym dosahem)
 				var hit = short_hit_scene.instance()
 				get_parent().add_child(hit)
-				hit.init(self, not $AnimatedSprite.flip_h, damage, 0.3)
+				var dmg = damage
+				# boost poskozeni
+				if power_boost_time > 0:
+					dmg *= 2
+				hit.init(self, not $AnimatedSprite.flip_h, dmg, 0.3)
 				hit.position = position
 				
 			# strelba
@@ -107,7 +120,11 @@ func moveProcess(delta):
 				$AnimatedSprite.offset.y -= 4
 				var bullet = bullet_scene.instance()
 				get_parent().add_child(bullet)
-				bullet.init(self, not $AnimatedSprite.flip_h)
+				var dmg = bullet_damage
+				# boost poskozeni
+				if power_boost_time > 0:
+					dmg *= 2
+				bullet.init(self, not $AnimatedSprite.flip_h, dmg)
 				if $AnimatedSprite.flip_h:
 					bullet.position = $shot_left.global_position
 					$AnimatedSprite.offset.x -= 10
@@ -177,6 +194,9 @@ var explosion = preload("res://entity/fx/blood_hit.tscn")
 func hit(damage):
 	if killed:
 		return
+	# boost obrany
+	if defense_boost_time > 0:
+		damage /= 2
 	# ubere hraci zivoty
 	lives = max(0, lives - damage)
 	# efekt zasahu
@@ -204,3 +224,21 @@ func _on_CamShakeTimer_timeout():
 func _on_KillTimer_timeout():
 	GameConfig.current_player = null
 	queue_free()
+	
+	
+# aktivuje power boost na urcity cas
+func setPowerBoost(time):
+	power_boost_time = time
+	
+
+# aktivuje defence boost na urcity cas
+func setDefenseBoost(time):
+	defense_boost_time = time
+
+
+# time count down pro boosty
+func _on_BoostTimer_timeout():
+	if not GameConfig.physics_enabled or killed:
+		return
+	power_boost_time = max(0, power_boost_time - 1)
+	defense_boost_time = max(0, defense_boost_time - 1)

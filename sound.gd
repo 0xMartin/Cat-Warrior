@@ -43,3 +43,7 @@ func explosion():
 
 func firehit():
 	$FireHit.play()
+
+
+func boost():
+	$Boost.play()

@@ -10,8 +10,9 @@ var particles = preload("res://entity/fx/bullet_particles.tscn").instance()
 var explosion = preload("res://entity/fx/explosion.tscn").instance()
 
 
-func init(_bullet_owner, _right):
+func init(_bullet_owner, _right, _damage):
 	bullet_owner = _bullet_owner
+	damage = _damage
 	right = _right
 	if not right:
 		speed *= -1

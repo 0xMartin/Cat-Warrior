@@ -74,3 +74,8 @@ func hit(damage):
 		get_parent().add_child(ex)
 		ex.init(position, Color.dodgerblue, 400, 300, 8, 0.35, 0.2)
 		queue_free()
+
+
+func _on_TimerInit_timeout():
+	for i in range(max_count):
+		spawnEntity(rng.randi_range(-max_dist, max_dist))	

@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	# pokud hrac vejde dovnitr
 	if GameConfig.current_player != null:
-		if GameConfig.current_player.position.distance_to(position) < 65:
+		if GameConfig.current_player.position.distance_to(position) < 80:
 			if $Timer.time_left == 0:
 				if GameConfig.current_player != null:
 					GameConfig.current_player.visible = false

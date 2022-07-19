@@ -21,6 +21,8 @@ script = ExtResource( 1 )
 [node name="Particles2D" type="Particles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.819608 )
 amount = 200
+explosiveness = 0.1
+randomness = 0.64
 process_material = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]

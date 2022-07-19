@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/guardian_death.mp3-86b96d3db73a6949abaecdec2dc055a5.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/game/guardian_death.mp3"
+dest_files=[ "res://.import/guardian_death.mp3-86b96d3db73a6949abaecdec2dc055a5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

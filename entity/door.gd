@@ -24,3 +24,13 @@ func hit(damage):
 		parent.add_child(explosion)
 		explosion.init(position, Color.darkgoldenrod, 300, 300, 7, 0.3, 0.1)
 		queue_free()
+
+
+func hide():
+	visible = false
+	$CollisionShape2D.disabled = true
+
+
+func show():
+	visible = true
+	$CollisionShape2D.disabled = false

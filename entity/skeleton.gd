@@ -5,6 +5,7 @@ export var gravity = 1000
 export var lives = 50
 export var damage = 10
 export var speed = 85
+const detect_range = 450
 
 
 var move = Vector2()
@@ -21,16 +22,17 @@ func _ready():
 func _physics_process(delta):
 	if not GameConfig.physics_enabled:
 		return
-		
-	# gravitace
-	move.y += min(gravity * delta, 1600);
 	
 	if lives > 0 and position.y < 1000:
+		# gravitace
+		move.y += min(gravity * delta, 1600);
 		# akce
 		actions(delta)
 	else:
 		# smrt
 		move.x = 0
+		move.y = 0
+		$CollisionShape2D.disabled = true
 		$AnimatedSprite.play("death")
 
 	# provedeni pohybu
@@ -74,7 +76,7 @@ func actions(delta):
 				$AnimatedSprite.play("walk")
 				$AnimatedSprite.flip_h = true
 				move.x = -speed
-				if dist < 350:
+				if dist < detect_range:
 					state = 3
 		2:
 			# doprava
@@ -85,7 +87,7 @@ func actions(delta):
 				$AnimatedSprite.play("walk")
 				$AnimatedSprite.flip_h = false
 				move.x = speed
-				if dist < 350:
+				if dist < detect_range:
 					state = 3
 		3:
 			# dojit k hraci
@@ -105,7 +107,7 @@ func actions(delta):
 					$AnimatedSprite.play("idle")	
 			if dist < 110:
 				state = 4
-			elif dist > 350:
+			elif dist > detect_range:
 				state = 0
 				wait = rng.randi_range(60, 300)
 		4:

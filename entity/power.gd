@@ -22,7 +22,7 @@ func _physics_process(delta):
 	# aktivace sily
 	if GameConfig.current_player != null:
 		var dist = GameConfig.current_player.position.distance_to(position)
-		if dist < 35:
+		if dist < 55:
 			# exploze
 			get_parent().add_child(explosion)
 			explosion.init(position, Color.red, 120, 300, 5, 0.25, 0.1)

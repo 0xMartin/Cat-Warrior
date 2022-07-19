@@ -8,11 +8,11 @@ export var right = true
 
 func _ready():
 	if right:
-		$Sprite_left.visible = false
-		$Sprite_right.visible = true
-	else:
 		$Sprite_left.visible = true
 		$Sprite_right.visible = false
+	else:
+		$Sprite_left.visible = false
+		$Sprite_right.visible = true
 
 
 func _on_Timer_timeout():

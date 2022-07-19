@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/Minecraft.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://entity/fx/boss_hp_bar.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+
+[sub_resource type="Animation" id=5]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "show"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("label1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="boss_hp_bar" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Outline" type="ColorRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -201.0
+margin_top = 43.0
+margin_right = 202.0
+margin_bottom = 70.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 201, 0 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+
+[node name="HPBar" type="ColorRect" parent="CanvasLayer/Outline"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -196.5
+margin_top = 4.0
+margin_right = 197.5
+margin_bottom = 23.0
+color = Color( 0.752941, 0.00784314, 0.00784314, 1 )
+
+[node name="label1" type="Label" parent="CanvasLayer/Outline"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -191.5
+margin_top = 6.0
+margin_right = 190.5
+margin_bottom = 26.0
+size_flags_stretch_ratio = 1.55
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Boss"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/Outline")
+anims/RESET = SubResource( 4 )
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

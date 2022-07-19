@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/guardian_attack.mp3-9a31c72a1318420ca6b7543fb2b4e77f.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/game/guardian_attack.mp3"
+dest_files=[ "res://.import/guardian_attack.mp3-9a31c72a1318420ca6b7543fb2b4e77f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 
 export var gravity = 1000
-export var lives = 900
+const max_lives = 900
+export var lives = max_lives
 export var damage = 30
 export var speed = 90
 
@@ -96,6 +97,9 @@ func actions(delta):
 				# provede utok
 				var p = get_parent()
 				
+				#zvuk 
+				$AudioStreamPlayerAttack.play()
+				
 				# bullet right
 				var b = bullet_scene.instance()
 				p.add_child(b)
@@ -120,15 +124,15 @@ func actions(delta):
 	
 var hp_added = false
 func hpAdd():
-	# test jestli hrac bude zabit
-	if GameConfig.current_player.lives <= 0:
-		if not hp_added:
-			print("Add")
-			hp_added = true
-			lives = min(lives + 100, 800)
-			$boss_hp_bar.setLives(lives)
-	else:
-		hp_added = false
+	if GameConfig.current_player != null:
+		# test jestli hrac bude zabit
+		if GameConfig.current_player.lives <= 0:
+			if not hp_added:
+				hp_added = true
+				lives = min(lives + 100, max_lives)
+				$boss_hp_bar.setLives(lives)
+		else:
+			hp_added = false
 		
 		
 # zasah

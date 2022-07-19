@@ -24,6 +24,7 @@ func getName():
 	
 	
 var fx_scene = preload("res://entity/fx/fountain_fx.tscn")	
+var opened = false	
 	
 func _physics_process(delta):
 	# spusteni boss zapasu
@@ -46,4 +47,11 @@ func _physics_process(delta):
 					$AudioStreamPlayerBoss.play()
 		else:
 			# boss byl porazen => otevre cestu dal
-			print("finish")
+			if not opened:
+				opened = true
+				$door3.hide()
+				var fx = fx_scene.instance()
+				add_child(fx)
+				var p = $door3.position
+				p.y += 100
+				fx.init(p, Color.darkgray, 300, 400, 8, 1, 0.5)

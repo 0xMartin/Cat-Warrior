@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://world/bg_parallax1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/world/Decors1.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://entity/moving_plate.tscn" type="PackedScene" id=18]
 [ext_resource path="res://entity/guardian.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/music/Killers.mp3" type="AudioStream" id=20]
+[ext_resource path="res://entity/portal.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Environment" id=66]
 background_mode = 4
@@ -604,3 +605,7 @@ position = Vector2( 22478, 681 )
 
 [node name="barrel2" parent="." instance=ExtResource( 16 )]
 position = Vector2( 26689, 45 )
+
+[node name="portal" parent="." instance=ExtResource( 21 )]
+position = Vector2( 27491, 21 )
+scale = Vector2( 2, 2 )

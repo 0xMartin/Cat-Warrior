@@ -25,8 +25,12 @@ func _physics_process(delta):
 			if $TimerHit.time_left == 0:
 				hit()
 				$TimerHit.start()
+		# stop attack
+		if GameConfig.current_player.lives <= 0:
+			$TimerHit.stop()
 	else:
-		_on_Timer_timeout()	
+		# stop attack
+		$TimerHit.stop()
 
 
 func _on_Timer_timeout():

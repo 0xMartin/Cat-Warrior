@@ -10,6 +10,7 @@ export var speed = 80
 var move = Vector2()
 var rng = RandomNumberGenerator.new()
 var death = preload("res://entity/fx/death_body_parts.tscn")
+var hp_tag_scene = preload("res://entity/hp_damage.tscn")
 
 
 # 0 - idle
@@ -123,5 +124,12 @@ func _on_AttackTimer_timeout():
 		
 # zasah
 func hit(damage):
+	# hp tag
+	var parent = get_parent()
+	if lives > 0:
+		var hp_tag = hp_tag_scene.instance()
+		hp_tag.init(position, damage)
+		parent.add_child(hp_tag)
+		
 	lives = max(0, lives - damage)
 	$health_bar.setLive(lives)

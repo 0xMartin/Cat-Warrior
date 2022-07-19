@@ -11,6 +11,7 @@ var move = Vector2()
 var run = false
 var rng = RandomNumberGenerator.new()
 var explosion = preload("res://entity/fx/explosion.tscn").instance()
+var hp_tag_scene = preload("res://entity/hp_damage.tscn")
 
 
 func _ready():
@@ -102,7 +103,7 @@ func actions(delta):
 					$AnimatedSprite.flip_h = true
 				else:
 					$AnimatedSprite.play("idle")	
-			if dist < 100:
+			if dist < 110:
 				state = 4
 			elif dist > 350:
 				state = 0
@@ -111,16 +112,25 @@ func actions(delta):
 			# utocit
 			if $AnimatedSprite.animation != "attack":
 				$AnimatedSprite.play("attack")
-			if dist > 100:
+			if dist > 110:
 				state = 3
 	wait -= 1
 
 		
 # zasah
 func hit(damage):
+	# hp tag
+	if lives > 0:
+		var parent = get_parent()
+		var hp_tag = hp_tag_scene.instance()
+		hp_tag.init(position, damage)
+		parent.add_child(hp_tag)
+		
 	lives = max(0, lives - damage)
+	
 	if state != 4:
 		state = 3
+		
 	$health_bar.setLive(lives)
 
 

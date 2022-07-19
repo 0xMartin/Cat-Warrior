@@ -25,7 +25,7 @@ func _physics_process(delta):
 		if dist < 35:
 			# exploze
 			get_parent().add_child(explosion)
-			explosion.init(position, Color.red, 120, 300, 5, 0.25, 0.1)
+			explosion.init(position, Color.blue, 120, 300, 5, 0.25, 0.1)
 			# pridani boostu
 			GameConfig.current_player.setDefenseBoost(time)
 			Sound.boost()

@@ -42,6 +42,7 @@ var move = Vector2()
 var bullet_scene = preload("res://entity/bullet/bullet_player.tscn")
 var short_hit_scene = preload("res://entity/bullet/short_hit.tscn")
 var death = preload("res://entity/fx/death_body_parts.tscn")
+var hp_tag_scene = preload("res://entity/hp_damage.tscn")
 
 
 func _physics_process(delta):
@@ -194,17 +195,28 @@ var explosion = preload("res://entity/fx/blood_hit.tscn")
 func hit(damage):
 	if killed:
 		return
+		
 	# boost obrany
 	if defense_boost_time > 0:
 		damage /= 2
+		
 	# ubere hraci zivoty
 	lives = max(0, lives - damage)
+	
+	var parent = get_parent()
+	
 	# efekt zasahu
 	var ex = explosion.instance()
-	get_parent().add_child(ex)
+	parent.add_child(ex)
 	ex.init(position, 40, 250, 6, 0.3, 0.2)
+	
 	# zatreseni kamery
 	shakeWithCamera(0.5, 2)
+	
+	# hp tag
+	var hp_tag = hp_tag_scene.instance()
+	hp_tag.init(position, damage)
+	parent.add_child(hp_tag)
 
 
 # otrese s kamerou urcitou silou po urcitou dobu

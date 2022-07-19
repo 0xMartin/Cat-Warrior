@@ -24,6 +24,7 @@ var entity_list = []
 
 var rng = RandomNumberGenerator.new()
 var explosion = preload("res://entity/fx/explosion.tscn")
+var hp_tag_scene = preload("res://entity/hp_damage.tscn")
 
 
 func _ready():
@@ -66,12 +67,20 @@ func spawnEntity(dist):
 	
 	
 func hit(damage):
+	# hp tag
+	var parent = get_parent()
+	if lives > 0:
+		var hp_tag = hp_tag_scene.instance()
+		hp_tag.init(position, damage)
+		parent.add_child(hp_tag)
+		
 	lives = max(0, lives - damage)
 	$health_bar.setLive(lives)
+	
 	if lives <= 0:
 		Sound.explosion()
 		var ex = explosion.instance()
-		get_parent().add_child(ex)
+		parent.add_child(ex)
 		ex.init(position, Color.dodgerblue, 400, 300, 8, 0.35, 0.2)
 		queue_free()
 

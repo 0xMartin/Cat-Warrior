@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 export var lives = 100
-var explosion = preload("res://entity/fx/explosion.tscn").instance()
+var fx = preload("res://entity/fx/fountain_fx.tscn").instance()
 var hp_tag_scene = preload("res://entity/hp_damage.tscn")
 
 
@@ -21,8 +21,10 @@ func hit(damage):
 	$health_bar.setLive(lives)
 	
 	if lives <= 0:
-		parent.add_child(explosion)
-		explosion.init(position, Color.darkgoldenrod, 300, 300, 7, 0.3, 0.1)
+		parent.add_child(fx)
+		var p = position
+		p.y += 100
+		fx.init(p, Color.dimgray, 300, 400, 8, 1, 0.5)
 		queue_free()
 
 

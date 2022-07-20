@@ -201,6 +201,7 @@ script = ExtResource( 3 )
 scale = Vector2( 2.7, 2.7 )
 frames = SubResource( 34 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -214,15 +215,15 @@ cast_to = Vector2( -30, -0.006 )
 collide_with_areas = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2( -40, 0 )
+position = Vector2( -50, 0 )
 enabled = true
-cast_to = Vector2( 0, 200 )
+cast_to = Vector2( 0, 150 )
 collide_with_areas = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2( 40, 0 )
+position = Vector2( 50, 0 )
 enabled = true
-cast_to = Vector2( 0, 200 )
+cast_to = Vector2( 0, 150 )
 
 [node name="RayCastRight2" type="RayCast2D" parent="."]
 position = Vector2( 20, 19 )

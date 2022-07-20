@@ -18,6 +18,7 @@ var world8_scene = preload("res://world/World8.tscn")
 var world9_scene = preload("res://world/World9.tscn")
 # chram
 var world10_scene = preload("res://world/World10.tscn")
+var world11_scene = preload("res://world/World11.tscn")
 
 ###########################################################################################
 
@@ -94,6 +95,8 @@ func loadWorld(index):
 			current_world = world9_scene.instance()
 		9:
 			current_world = world10_scene.instance()
+		10:
+			current_world = world11_scene.instance()
 	add_child(current_world)
 	GameConfig.current_world_name = current_world.getName()
 	

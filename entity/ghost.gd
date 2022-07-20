@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 
+
 export var gravity = 1000
-export var lives = 50
-export var damage = 10
-export var speed = 85
+export var lives = 40
+export var damage = 15
+export var speed = 120
 const detect_range = 450
 
 
@@ -73,8 +74,8 @@ func actions(delta):
 				state = 0
 				wait = rng.randi_range(60, 300)
 			else:
+				$AnimatedSprite.flip_h = false
 				$AnimatedSprite.play("walk")
-				$AnimatedSprite.flip_h = true
 				move.x = -speed
 				if dist < detect_range:
 					state = 3
@@ -84,26 +85,26 @@ func actions(delta):
 				state = 0
 				wait = rng.randi_range(60, 300)
 			else:
+				$AnimatedSprite.flip_h = true
 				$AnimatedSprite.play("walk")
-				$AnimatedSprite.flip_h = false
 				move.x = speed
 				if dist < detect_range:
 					state = 3
 		3:
 			# dojit k hraci
 			if x_dir > 0:
+				$AnimatedSprite.flip_h = true
 				if not $RayCastRight2.is_colliding() and $RayCastRight.is_colliding():
 					move.x = speed
 					$AnimatedSprite.play("walk")
-					$AnimatedSprite.flip_h = false
 				else:
 					$AnimatedSprite.play("idle")
 					move.x = 0
 			else:
+				$AnimatedSprite.flip_h = false
 				if not $RayCastLeft2.is_colliding() and $RayCastLeft.is_colliding():
 					move.x = -speed	
 					$AnimatedSprite.play("walk")
-					$AnimatedSprite.flip_h = true
 				else:
 					$AnimatedSprite.play("idle")	
 					move.x = 0
@@ -144,9 +145,7 @@ func _on_AnimatedSprite_animation_finished():
 		if $AnimatedSprite.animation == "death":
 			# exploze
 			get_parent().add_child(explosion)
-			var p = position
-			p.y += 20
-			explosion.init(p, Color.darkgray, 150, 300, 6, 0.25, 0.1)
+			explosion.init($Position2D.global_position, Color.firebrick, 150, 300, 6, 0.25, 0.1)
 			# zabiti
 			queue_free()
 

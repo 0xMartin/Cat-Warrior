@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://defence.gd" type="Script" id=1]
+[ext_resource path="res://entity/defence.gd" type="Script" id=1]
 [ext_resource path="res://assets/defense_orb.png" type="Texture" id=2]
+[ext_resource path="res://assets/light.png" type="Texture" id=3]
 
 [sub_resource type="ParticlesMaterial" id=1]
 flag_disable_z = true
@@ -11,7 +12,7 @@ initial_velocity = 37.59
 orbit_velocity = 0.4
 orbit_velocity_random = 0.0
 scale = 3.0
-color = Color( 0.133333, 0.0980392, 0.729412, 1 )
+color = Color( 0.270588, 0.341176, 0.917647, 1 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -47,4 +48,10 @@ process_material = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 1.2, 1, 1, 1 )
 frames = SubResource( 6 )
+frame = 1
 playing = true
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.84, 0.84 )
+texture = ExtResource( 3 )
+color = Color( 0.329412, 0.431373, 1, 1 )

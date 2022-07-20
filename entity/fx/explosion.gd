@@ -20,11 +20,13 @@ func init(pos, color, amount, velocity, size, lifetime, time):
 	$Particles2D.process_material.initial_velocity = velocity
 	$Particles2D.lifetime = lifetime
 	$Particles2D.process_material.color = color
+	$Light2D.color = color
 
 
 # zastaveni exploze + spusteni timeru na volani destruktoru
 func _on_Timer_timeout():
 	$Particles2D.emitting = false
+	$Light2D.enabled = false
 	$Timer_death.start()
 
 

@@ -20,7 +20,7 @@ scale = 4.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
 position = Vector2( 0, -87 )
-color = Color( 0.552941, 0.552941, 0.596078, 1 )
+color = Color( 0.368627, 0.239216, 0.239216, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
 margin_right = 1024.0
@@ -34,7 +34,6 @@ motion_offset = Vector2( 900, 0 )
 motion_mirroring = Vector2( 1800, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-visible = false
 position = Vector2( 408, 9.53674e-06 )
 scale = Vector2( 3.05742, 3.05742 )
 texture = ExtResource( 3 )
@@ -65,3 +64,6 @@ amount = 40
 lifetime = 3.0
 local_coords = false
 process_material = SubResource( 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.254902, 0.156863, 0.156863, 1 )

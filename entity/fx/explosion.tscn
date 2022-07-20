@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entity/fx/explosion.gd" type="Script" id=1]
+[ext_resource path="res://assets/light.png" type="Texture" id=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
 flag_disable_z = true
@@ -29,6 +30,13 @@ one_shot = true
 
 [node name="Timer_death" type="Timer" parent="."]
 one_shot = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -2.38419e-07, -3.8147e-06 )
+scale = Vector2( 1.18, 1.18 )
+texture = ExtResource( 2 )
+color = Color( 0.960784, 0.32549, 0.0784314, 1 )
+energy = 1.4
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_death" to="." method="_on_Timer_death_timeout"]

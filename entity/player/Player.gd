@@ -254,3 +254,8 @@ func _on_BoostTimer_timeout():
 		return
 	power_boost_time = max(0, power_boost_time - 1)
 	defense_boost_time = max(0, defense_boost_time - 1)
+
+
+# nastaveni svetla
+func light(visibility):
+	$Light2D.visible = visibility

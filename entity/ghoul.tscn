@@ -23,7 +23,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 20, 30 )
 
-[node name="ghoul" type="KinematicBody2D"]
+[node name="ghoul" type="KinematicBody2D" groups=["fire_resist"]]
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -38,7 +38,7 @@ playing = true
 shape = SubResource( 78 )
 
 [node name="RayCastLeft2" type="RayCast2D" parent="."]
-position = Vector2( -23, 19 )
+position = Vector2( -23, 0 )
 enabled = true
 cast_to = Vector2( -30, -0.006 )
 collide_with_areas = true
@@ -55,7 +55,7 @@ enabled = true
 cast_to = Vector2( 0, 150 )
 
 [node name="RayCastRight2" type="RayCast2D" parent="."]
-position = Vector2( 22, 19 )
+position = Vector2( 22, 0 )
 enabled = true
 cast_to = Vector2( 30, 0 )
 
@@ -70,5 +70,3 @@ scale = Vector2( 0.78, 0.78 )
 texture = ExtResource( 11 )
 color = Color( 0.960784, 0.32549, 0.0784314, 1 )
 energy = 1.4
-
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

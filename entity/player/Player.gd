@@ -211,7 +211,7 @@ func hit(damage):
 	ex.init(position, 40, 250, 6, 0.3, 0.2)
 	
 	# zatreseni kamery
-	shakeWithCamera(0.5, 2)
+	shakeWithCamera(0.5, 3)
 	
 	# hp tag
 	var hp_tag = hp_tag_scene.instance()

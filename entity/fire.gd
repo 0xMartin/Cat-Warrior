@@ -6,8 +6,9 @@ var target = null
 
 
 func _on_fire_body_entered(body):
-	target = body
-	$Timer.start()
+	if not body.is_in_group("fire_resist"):
+		target = body
+		$Timer.start()
 
 
 func _on_fire_body_exited(body):

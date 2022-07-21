@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export var gravity = 1000
 export var lives = 20
-export var damage = 10
+export var damage = 70
 export var speed = 140
 const detect_range = 400
 
@@ -30,10 +30,7 @@ func _physics_process(delta):
 		actions(delta)
 	else:
 		# smrt
-		move.x = 0
-		move.y = 0
-		$CollisionShape2D.disabled = true
-		$AnimatedSprite.play("death")
+		kill()
 
 	# provedeni pohybu
 	move = move_and_slide(move, Vector2(0, -1))
@@ -115,19 +112,15 @@ func hit(damage):
 
 func targetHit():
 	if GameConfig.current_player != null:
-		print("hit")
-		Sound.hit2()
 		GameConfig.current_player.hit(damage)	
+		kill()
+		
 
-
-# zabije po prehrani animace
-func _on_AnimatedSprite_animation_finished():
-	if lives <= 0:
-		if $AnimatedSprite.animation == "death":
-			# exploze
-			get_parent().add_child(explosion)
-			var p = position
-			p.y += 20
-			explosion.init(p, Color.darkgray, 150, 300, 6, 0.25, 0.1)
-			# zabiti
-			queue_free()
+func kill():
+	# zvuk
+	Sound.explosion()
+	# exploze
+	get_parent().add_child(explosion)
+	explosion.init(position, Color.orange, 300, 400, 8, 0.3, 0.2)
+	# zabiti
+	queue_free()

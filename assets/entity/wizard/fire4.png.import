@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/archon-2.png-8692ecef0b0ef9f2db9979d97ec54524.stex"
+path="res://.import/fire4.png-0d3eddd19bc605832e447e9b89af9d33.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/archon/archon-2.png"
-dest_files=[ "res://.import/archon-2.png-8692ecef0b0ef9f2db9979d97ec54524.stex" ]
+source_file="res://assets/entity/wizard/fire4.png"
+dest_files=[ "res://.import/fire4.png-0d3eddd19bc605832e447e9b89af9d33.stex" ]
 
 [params]
 

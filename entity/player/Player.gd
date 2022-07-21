@@ -152,12 +152,12 @@ func moveProcess(delta):
 	move = move_and_slide(move, Vector2(0, -1))
 	
 	# zvuk pohybu
-	if move.x == 0 or not is_on_floor():
-		if $AudioStreamPlayerWalk.playing:
-			$AudioStreamPlayerWalk.stop()
-	else:
+	if (Input.is_action_pressed("player_right") or Input.is_action_pressed("player_left")) and is_on_floor():
 		if not $AudioStreamPlayerWalk.playing:
 			$AudioStreamPlayerWalk.play()
+	else:
+		if $AudioStreamPlayerWalk.playing:
+			$AudioStreamPlayerWalk.stop()
 	
 
 # zpravovani castic

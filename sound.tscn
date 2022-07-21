@@ -73,4 +73,4 @@ volume_db = 7.0
 
 [node name="Shot2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -4.0
+volume_db = -1.0

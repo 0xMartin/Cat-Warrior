@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wizard-idle-4.png-935885b9faeffe434baa6b67a97f1be1.stex"
+path="res://.import/enemy-death.png-ec45c5a1fed2f670aacedfd3c6a12d77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/wizard/wizard-idle-4.png"
-dest_files=[ "res://.import/wizard-idle-4.png-935885b9faeffe434baa6b67a97f1be1.stex" ]
+source_file="res://assets/entity/wizard/enemy-death.png"
+dest_files=[ "res://.import/enemy-death.png-ec45c5a1fed2f670aacedfd3c6a12d77.stex" ]
 
 [params]
 

@@ -338,9 +338,6 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 32, 0, 32 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 77 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.305882, 0.305882, 0.356863, 1 )
-
 [node name="spawn0" type="Position2D" parent="."]
 position = Vector2( 293, 425 )
 

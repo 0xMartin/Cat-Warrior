@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mage-bullet-13x13.png-83f4417b5c423a016bf433735aab2aad.stex"
+path="res://.import/mage-bullet-13x13.png-aca475ca1512e1f4d83b34a3b00d7400.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/archon/mage-bullet-13x13.png"
-dest_files=[ "res://.import/mage-bullet-13x13.png-83f4417b5c423a016bf433735aab2aad.stex" ]
+source_file="res://assets/entity/bullets/mage-bullet-13x13.png"
+dest_files=[ "res://.import/mage-bullet-13x13.png-aca475ca1512e1f4d83b34a3b00d7400.stex" ]
 
 [params]
 

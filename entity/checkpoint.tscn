@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/entity/flag/flag_off.png" type="Texture" id=1]
 [ext_resource path="res://assets/entity/flag/flag.png" type="Texture" id=2]
 [ext_resource path="res://entity/checkpoint.gd" type="Script" id=3]
+[ext_resource path="res://assets/light.png" type="Texture" id=4]
 
 [sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 1
@@ -60,3 +61,10 @@ scale = Vector2( 1.36842, 1.36842 )
 frames = SubResource( 5 )
 animation = "off"
 playing = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 6 )
+scale = Vector2( 1, 1.1 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.94902, 0.768627, 1 )
+energy = 0.6

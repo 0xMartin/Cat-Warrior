@@ -31,7 +31,7 @@ position = Vector2( 0, -11 )
 scale = Vector2( 1.36842, 1.36842 )
 frames = SubResource( 77 )
 animation = "walk"
-frame = 5
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,8 +61,7 @@ cast_to = Vector2( 30, 0 )
 
 [node name="health_bar" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 0, -55 )
-scale = Vector2( 2, 1.5 )
+position = Vector2( 0, -39 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -2.38419e-07, -17 )

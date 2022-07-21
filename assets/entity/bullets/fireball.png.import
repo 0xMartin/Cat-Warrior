@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wizard-idle-4.png-935885b9faeffe434baa6b67a97f1be1.stex"
+path="res://.import/fireball.png-9284940c2149788cef9d8b89b2925e23.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/wizard/wizard-idle-4.png"
-dest_files=[ "res://.import/wizard-idle-4.png-935885b9faeffe434baa6b67a97f1be1.stex" ]
+source_file="res://assets/entity/bullets/fireball.png"
+dest_files=[ "res://.import/fireball.png-9284940c2149788cef9d8b89b2925e23.stex" ]
 
 [params]
 

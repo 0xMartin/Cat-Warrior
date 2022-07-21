@@ -46,7 +46,6 @@ func actions(delta):
 		dist = GameConfig.current_player.position.distance_to(position)
 		x_dir = GameConfig.current_player.position.x - position.x
 
-	print(str(state))
 	# stavy
 	match state:
 		0:
@@ -112,8 +111,9 @@ func hit(damage):
 
 func targetHit():
 	if GameConfig.current_player != null:
-		GameConfig.current_player.hit(damage)	
-		kill()
+		if GameConfig.current_player.lives > 0:
+			GameConfig.current_player.hit(damage)	
+			kill()
 		
 
 func kill():
@@ -121,6 +121,6 @@ func kill():
 	Sound.explosion()
 	# exploze
 	get_parent().add_child(explosion)
-	explosion.init(position, Color.orange, 300, 400, 8, 0.3, 0.2)
+	explosion.init(position, Color.orange, 300, 400, 8, 0.4, 0.2)
 	# zabiti
 	queue_free()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bosstheme_WO_low.mp3-5582e42310b96f8daa16520740a46ed0.mp3str"
+
+[deps]
+
+source_file="res://assets/music/bosstheme_WO_low.mp3"
+dest_files=[ "res://.import/bosstheme_WO_low.mp3-5582e42310b96f8daa16520740a46ed0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

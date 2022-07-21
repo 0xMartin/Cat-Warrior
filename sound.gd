@@ -47,3 +47,11 @@ func firehit():
 
 func boost():
 	$Boost.play()
+
+
+func deathEnemy():
+	$DeathEnemy.play()
+	
+	
+func shot2():
+	$Shot2.play()

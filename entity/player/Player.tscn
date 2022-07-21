@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://entity/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/entity/cat/spr_pc_walk_strip4.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/entity/cat/spr_pc_shoot_strip5.png" type="Texture" id=4]
 [ext_resource path="res://assets/entity/cat/spr_pc_beat_strip8.png" type="Texture" id=5]
 [ext_resource path="res://assets/light.png" type="Texture" id=6]
+[ext_resource path="res://assets/sound/game/walk.mp3" type="AudioStream" id=7]
 
 [sub_resource type="ParticlesMaterial" id=24]
 emission_shape = 3
@@ -86,6 +87,10 @@ region = Rect2( 510, 0, 85, 54 )
 atlas = ExtResource( 5 )
 region = Rect2( 595, 0, 85, 54 )
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 36, 0, 36, 48 )
+
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 38, 43 )
@@ -101,10 +106,6 @@ region = Rect2( 76, 0, 38, 43 )
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 114, 0, 38, 43 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 36, 0, 36, 48 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -128,15 +129,15 @@ animations = [ {
 "name": "hit",
 "speed": 11.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 8 ) ],
 "loop": false,
 "name": "fall",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -189,6 +190,11 @@ scale = Vector2( 1.71, 1.71 )
 texture = ExtResource( 6 )
 color = Color( 1, 0.866667, 0.670588, 1 )
 energy = 0.9
+
+[node name="AudioStreamPlayerWalk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -2.0
+pitch_scale = 0.53
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="CamShakeTimer" to="." method="_on_CamShakeTimer_timeout"]

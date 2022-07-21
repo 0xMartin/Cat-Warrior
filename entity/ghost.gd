@@ -3,8 +3,8 @@ extends KinematicBody2D
 
 
 export var gravity = 1000
-export var lives = 40
-export var damage = 15
+export var lives = 35
+export var damage = 25
 export var speed = 120
 const detect_range = 450
 
@@ -143,6 +143,7 @@ func hit(damage):
 func _on_AnimatedSprite_animation_finished():
 	if lives <= 0:
 		if $AnimatedSprite.animation == "death":
+			Sound.deathEnemy()
 			# exploze
 			get_parent().add_child(explosion)
 			explosion.init($Position2D.global_position, Color.firebrick, 150, 300, 6, 0.25, 0.1)

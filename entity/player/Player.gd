@@ -151,6 +151,14 @@ func moveProcess(delta):
 	# provedeni pohybu
 	move = move_and_slide(move, Vector2(0, -1))
 	
+	# zvuk pohybu
+	if move.x == 0 or not is_on_floor():
+		if $AudioStreamPlayerWalk.playing:
+			$AudioStreamPlayerWalk.stop()
+	else:
+		if not $AudioStreamPlayerWalk.playing:
+			$AudioStreamPlayerWalk.play()
+	
 
 # zpravovani castic
 var last_y = 0

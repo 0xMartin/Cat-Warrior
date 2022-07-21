@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/sound/game/hit.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/sound/game/player_death.mp3" type="AudioStream" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/sound/game/explosion.mp3" type="AudioStream" id=11]
 [ext_resource path="res://assets/sound/game/fire_hit.mp3" type="AudioStream" id=12]
 [ext_resource path="res://assets/sound/game/boost.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/sound/game/death_enemy.mp3" type="AudioStream" id=14]
+[ext_resource path="res://assets/sound/game/shot2.mp3" type="AudioStream" id=15]
 
 [node name="sound" type="Node2D"]
 script = ExtResource( 3 )
@@ -64,3 +66,11 @@ pitch_scale = 0.63
 [node name="Boost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -10.0
+
+[node name="DeathEnemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = 7.0
+
+[node name="Shot2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -4.0

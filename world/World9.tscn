@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/music/Oppressive Gloom.mp3" type="AudioStream" id=17]
 [ext_resource path="res://entity/moving_plate.tscn" type="PackedScene" id=18]
 [ext_resource path="res://entity/guardian.tscn" type="PackedScene" id=19]
-[ext_resource path="res://assets/music/Killers.mp3" type="AudioStream" id=20]
+[ext_resource path="res://assets/music/bosstheme_WO_low.mp3" type="AudioStream" id=20]
 [ext_resource path="res://entity/portal.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Environment" id=66]
@@ -392,7 +392,7 @@ autoplay = true
 
 [node name="AudioStreamPlayerBoss" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
-volume_db = -9.0
+volume_db = -3.0
 
 [node name="door2" parent="." instance=ExtResource( 8 )]
 visible = false

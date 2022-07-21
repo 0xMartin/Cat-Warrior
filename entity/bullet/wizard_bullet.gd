@@ -12,12 +12,15 @@ var explosion = preload("res://entity/fx/explosion.tscn").instance()
 
 
 func init(_bullet_owner, _right, _damage):
+	$AnimationPlayer.play("New Anim")
 	bullet_owner = _bullet_owner
 	damage = _damage
 	right = _right
 	if not right:
 		speed *= -1
-		$AnimatedSprite.flip_h = true
+		$Sprite.flip_h = false
+	else:
+		$Sprite.flip_h = true
 		
 	# spawn particle efektu
 	particles.init(self, Color.orangered, 30, 4, 1)

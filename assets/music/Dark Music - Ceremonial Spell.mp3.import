@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dark Music - Ceremonial Spell.mp3-9962a7ac94b8a8b7742237d632ceb95f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Dark Music - Ceremonial Spell.mp3"
+dest_files=[ "res://.import/Dark Music - Ceremonial Spell.mp3-9962a7ac94b8a8b7742237d632ceb95f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

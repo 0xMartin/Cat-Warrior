@@ -79,7 +79,7 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2.2, 2.2 )
 frames = SubResource( 2 )
-animation = "attack"
+animation = "idle"
 frame = 2
 playing = true
 

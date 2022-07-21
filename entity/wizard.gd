@@ -29,10 +29,8 @@ func _physics_process(delta):
 		actions(delta)
 	else:
 		# smrt
-		move.x = 0
-		move.y = 0
-		$CollisionShape2D.disabled = true
 		Sound.explosion()
+		$CollisionShape2D.disabled = true
 		$AnimatedSprite.play("death")
 
 	# provedeni pohybu
@@ -90,4 +88,4 @@ func _on_AnimatedSprite_frame_changed():
 			get_parent().add_child(bullet)
 			bullet.init(self, right, damage)
 			bullet.position = position
-			Sound.shot()
+			Sound.shot2()

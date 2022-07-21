@@ -2,7 +2,7 @@
 
 [ext_resource path="res://entity/fx/torch_light.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/world/Tileset3.png" type="Texture" id=2]
-[ext_resource path="res://assets/music/Final Battle of the Dark Wizards.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/Dark Music - Catacombs.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/world/Decors3.png" type="Texture" id=4]
 [ext_resource path="res://world/bg_parallax2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://world/World11.gd" type="Script" id=6]
@@ -352,6 +352,14 @@ environment = SubResource( 79 )
 [node name="spawn0" type="Position2D" parent="."]
 position = Vector2( 483, 492 )
 
+[node name="checkpoint1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 10441, 427 )
+index = 1
+
+[node name="checkpoint2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 18622, 524 )
+index = 2
+
 [node name="trap_gun" parent="." instance=ExtResource( 14 )]
 position = Vector2( 11718, 579 )
 
@@ -381,16 +389,8 @@ tile_data = PoolIntArray( -458184, 18, 0, -327519, 18, 0, -261576, 18, 0, -26155
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -5.0
+volume_db = -8.0
 autoplay = true
-
-[node name="checkpoint1" parent="." instance=ExtResource( 11 )]
-position = Vector2( 10441, 431 )
-index = 1
-
-[node name="checkpoint2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 18622, 534 )
-index = 2
 
 [node name="torch_light" parent="." instance=ExtResource( 1 )]
 position = Vector2( 339, 531 )
@@ -399,7 +399,7 @@ position = Vector2( 339, 531 )
 position = Vector2( 6767, 564 )
 
 [node name="torch_light3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 10325, 402 )
+position = Vector2( 10320, 402 )
 
 [node name="torch_light4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 16656, 475 )

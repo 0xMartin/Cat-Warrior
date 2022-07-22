@@ -237,7 +237,7 @@ position = Vector2( -30, 12 )
 scale = Vector2( 2.21818, 2.21818 )
 frames = SubResource( 20 )
 animation = "run"
-frame = 6
+frame = 8
 playing = true
 
 [node name="AnimatedSprite_sword" type="AnimatedSprite" parent="body"]
@@ -246,7 +246,7 @@ position = Vector2( -14, -15 )
 scale = Vector2( 2.21818, 2.21818 )
 frames = SubResource( 21 )
 animation = "run"
-frame = 6
+frame = 3
 playing = true
 
 [node name="AnimatedSprite_thunder" type="AnimatedSprite" parent="body"]
@@ -262,7 +262,7 @@ playing = true
 scale = Vector2( 2.21818, 2.21818 )
 frames = SubResource( 2 )
 animation = "mode2_hand"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

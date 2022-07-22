@@ -1,7 +1,7 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://assets/entity/archon/mage-1.png" type="Texture" id=1]
-[ext_resource path="res://assets/entity/archon/mage-2-no-hand.png" type="Texture" id=2]
+[ext_resource path="res://assets/entity/archon/mage-2.png" type="Texture" id=2]
 [ext_resource path="res://assets/entity/archon/hands/shot/shot_6.png" type="Texture" id=3]
 [ext_resource path="res://assets/entity/archon/hands/shot/shot_5.png" type="Texture" id=4]
 [ext_resource path="res://assets/entity/archon/hands/shot/shot_4.png" type="Texture" id=5]
@@ -30,42 +30,12 @@
 [ext_resource path="res://assets/entity/archon/hands/gold/gold_0.png" type="Texture" id=28]
 [ext_resource path="res://assets/entity/archon/hands/gold/gold_1.png" type="Texture" id=29]
 [ext_resource path="res://assets/entity/archon/hands/gold/gold_3.png" type="Texture" id=30]
-[ext_resource path="res://assets/entity/archon/mage-2-hand.png" type="Texture" id=31]
+[ext_resource path="res://assets/entity/archon/hands/thunder/thunder_6.png" type="Texture" id=31]
 [ext_resource path="res://entity/final_boss.gd" type="Script" id=32]
 [ext_resource path="res://entity/fx/boss_hp_bar.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/light.png" type="Texture" id=34]
-
-[sub_resource type="SpriteFrames" id=23]
-animations = [ {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "run",
-"speed": 7.0
-} ]
-
-[sub_resource type="SpriteFrames" id=20]
-animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "run",
-"speed": 12.0
-} ]
-
-[sub_resource type="SpriteFrames" id=21]
-animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "run",
-"speed": 11.0
-} ]
-
-[sub_resource type="SpriteFrames" id=22]
-animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "run",
-"speed": 7.0
-} ]
+[ext_resource path="res://assets/entity/archon/hands/sword/sword_7.png" type="Texture" id=35]
+[ext_resource path="res://assets/entity/archon/hands/thunder/thunder_7.png" type="Texture" id=36]
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 1 )
@@ -99,67 +69,35 @@ region = Rect2( 170, 94, 85, 94 )
 atlas = ExtResource( 1 )
 region = Rect2( 255, 94, 85, 94 )
 
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 31 )
-region = Rect2( 0, 0, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 31 )
-region = Rect2( 122, 0, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 31 )
-region = Rect2( 244, 0, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 31 )
-region = Rect2( 366, 0, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 31 )
-region = Rect2( 0, 110, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 31 )
-region = Rect2( 122, 110, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 31 )
-region = Rect2( 244, 110, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 31 )
-region = Rect2( 366, 110, 122, 110 )
-
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=50]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=51]
 atlas = ExtResource( 2 )
 region = Rect2( 122, 0, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=52]
 atlas = ExtResource( 2 )
 region = Rect2( 244, 0, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=53]
 atlas = ExtResource( 2 )
 region = Rect2( 366, 0, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=54]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 110, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=55]
 atlas = ExtResource( 2 )
 region = Rect2( 122, 110, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=38]
+[sub_resource type="AtlasTexture" id=56]
 atlas = ExtResource( 2 )
 region = Rect2( 244, 110, 122, 110 )
 
-[sub_resource type="AtlasTexture" id=39]
+[sub_resource type="AtlasTexture" id=57]
 atlas = ExtResource( 2 )
 region = Rect2( 366, 110, 122, 110 )
 
@@ -170,15 +108,87 @@ animations = [ {
 "name": "mode1",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ) ],
+"frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
 "loop": true,
-"name": "mode2_hand",
+"name": "mode2",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "run",
+"speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "run",
+"speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "run",
+"speed": 11.0
+} ]
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=62]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "mode1",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
 "loop": true,
-"name": "mode2_no_hand",
+"name": "mode2",
 "speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=58]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "run",
+"speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=59]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "run",
+"speed": 11.0
+} ]
+
+[sub_resource type="SpriteFrames" id=60]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=61]
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "run",
+"speed": 7.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -221,49 +231,100 @@ scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 32 )
 
 [node name="body" type="Node2D" parent="."]
+
+[node name="right" type="Node2D" parent="body"]
 scale = Vector2( 1, 1 )
 
-[node name="AnimatedSprite_gold" type="AnimatedSprite" parent="body"]
-visible = false
-position = Vector2( -1, -5 )
+[node name="AnimatedSprite_body" type="AnimatedSprite" parent="body/right"]
+scale = Vector2( 2.21818, 2.21818 )
+frames = SubResource( 2 )
+animation = "mode2"
+frame = 7
+playing = true
+
+[node name="AnimatedSprite_gold" type="AnimatedSprite" parent="body/right"]
+position = Vector2( 76.25, -7.5 )
 scale = Vector2( 2.21818, 2.21818 )
 frames = SubResource( 23 )
 animation = "run"
 frame = 5
 playing = true
 
-[node name="AnimatedSprite_shot" type="AnimatedSprite" parent="body"]
+[node name="AnimatedSprite_thunder" type="AnimatedSprite" parent="body/right"]
 visible = false
-position = Vector2( -30, 12 )
+position = Vector2( 63.75, 23.75 )
 scale = Vector2( 2.21818, 2.21818 )
-frames = SubResource( 20 )
+frames = SubResource( 22 )
+animation = "run"
+frame = 7
+
+[node name="AnimatedSprite_sword" type="AnimatedSprite" parent="body/right"]
+visible = false
+position = Vector2( 92.5, 71.25 )
+scale = Vector2( 2.21818, 2.21818 )
+frames = SubResource( 21 )
 animation = "run"
 frame = 4
 playing = true
 
-[node name="AnimatedSprite_sword" type="AnimatedSprite" parent="body"]
+[node name="AnimatedSprite_shot" type="AnimatedSprite" parent="body/right"]
 visible = false
-position = Vector2( -14, -15 )
+position = Vector2( 56.25, 8.75 )
 scale = Vector2( 2.21818, 2.21818 )
-frames = SubResource( 21 )
+frames = SubResource( 20 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="left" type="Node2D" parent="body"]
+visible = false
+scale = Vector2( 1, 1 )
+
+[node name="AnimatedSprite_body" type="AnimatedSprite" parent="body/left"]
+scale = Vector2( 2.21818, 2.21818 )
+frames = SubResource( 62 )
+animation = "mode2"
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite_thunder" type="AnimatedSprite" parent="body/left"]
+visible = false
+position = Vector2( -67.5, 25 )
+scale = Vector2( 2.21818, 2.21818 )
+frames = SubResource( 58 )
+animation = "run"
+frame = 7
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite_sword" type="AnimatedSprite" parent="body/left"]
+visible = false
+position = Vector2( -96.25, 72.5 )
+scale = Vector2( 2.21818, 2.21818 )
+frames = SubResource( 59 )
 animation = "run"
 frame = 2
 playing = true
+flip_h = true
 
-[node name="AnimatedSprite_thunder" type="AnimatedSprite" parent="body"]
+[node name="AnimatedSprite_shot" type="AnimatedSprite" parent="body/left"]
 visible = false
-position = Vector2( -5.68434e-14, -5 )
+position = Vector2( -60, 10 )
 scale = Vector2( 2.21818, 2.21818 )
-frames = SubResource( 22 )
+frames = SubResource( 60 )
+animation = "run"
+frame = 3
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite_gold" type="AnimatedSprite" parent="body/left"]
+position = Vector2( -80, -6.25 )
+scale = Vector2( 2.21818, 2.21818 )
+frames = SubResource( 61 )
 animation = "run"
 frame = 5
 playing = true
-
-[node name="AnimatedSprite_body" type="AnimatedSprite" parent="body"]
-scale = Vector2( 2.21818, 2.21818 )
-frames = SubResource( 2 )
-animation = "mode1"
-playing = true
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 21 )

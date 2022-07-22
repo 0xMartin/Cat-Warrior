@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mage-2-hand.png-b8f4b66eeb2637045ced54462b2b8191.stex"
+path="res://.import/mage-2.png-f4a679bcb7f54c06878f01f652e9f9c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/archon/mage-2-hand.png"
-dest_files=[ "res://.import/mage-2-hand.png-b8f4b66eeb2637045ced54462b2b8191.stex" ]
+source_file="res://assets/entity/archon/mage-2.png"
+dest_files=[ "res://.import/mage-2.png-f4a679bcb7f54c06878f01f652e9f9c6.stex" ]
 
 [params]
 

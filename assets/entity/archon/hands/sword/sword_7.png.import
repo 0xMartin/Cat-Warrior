@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mage-2-no-hand.png-d0c8bd889326be278997bd62331cde73.stex"
+path="res://.import/sword_7.png-785048798359ed68f7a6f2bd87add4ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/archon/mage-2-no-hand.png"
-dest_files=[ "res://.import/mage-2-no-hand.png-d0c8bd889326be278997bd62331cde73.stex" ]
+source_file="res://assets/entity/archon/hands/sword/sword_7.png"
+dest_files=[ "res://.import/sword_7.png-785048798359ed68f7a6f2bd87add4ad.stex" ]
 
 [params]
 

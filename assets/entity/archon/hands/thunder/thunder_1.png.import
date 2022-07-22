@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mage-1-85x94.png-604e1b08a734f73554bd5f49dec647e7.stex"
+path="res://.import/thunder_1.png-f79b54c23643f97e614e5894727dca9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/archon/mage-1-85x94.png"
-dest_files=[ "res://.import/mage-1-85x94.png-604e1b08a734f73554bd5f49dec647e7.stex" ]
+source_file="res://assets/entity/archon/hands/thunder/thunder_1.png"
+dest_files=[ "res://.import/thunder_1.png-f79b54c23643f97e614e5894727dca9c.stex" ]
 
 [params]
 

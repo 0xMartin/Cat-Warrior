@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://entity/fx/torch_light.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/bg_parallax2.tscn" type="PackedScene" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://entity/defence.tscn" type="PackedScene" id=16]
 [ext_resource path="res://entity/spike.tscn" type="PackedScene" id=17]
 [ext_resource path="res://entity/door.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/music/Dark Music - Queen of Thorns.mp3" type="AudioStream" id=19]
+[ext_resource path="res://assets/music/Killers.mp3" type="AudioStream" id=20]
 
 [sub_resource type="Environment" id=79]
 background_mode = 4
@@ -390,6 +392,14 @@ tile_data = PoolIntArray( -1047965, 18, 0, -916904, 18, 0, -916885, 16, 0, -9168
 stream = ExtResource( 4 )
 volume_db = -5.0
 autoplay = true
+
+[node name="AudioStreamPlayerBoss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -5.0
+
+[node name="AudioStreamPlayerEnding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -5.0
 
 [node name="torch_light" parent="." instance=ExtResource( 1 )]
 position = Vector2( 307, 531 )

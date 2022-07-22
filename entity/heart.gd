@@ -1,5 +1,7 @@
 extends Node2D
 
+export var hp_bonus = 10
+
 var value = 0
 var last_v = 0
 const speed = 3
@@ -18,8 +20,12 @@ func _physics_process(delta):
 	
 	if GameConfig.current_player != null:
 		if GameConfig.current_player.position.distance_to(position) < 45:
-			GameConfig.current_player.lives += 10
+			GameConfig.current_player.lives += hp_bonus
 			get_parent().add_child(efx)
 			efx.init(position, Color.red, 90, 200, 4, 0.2, 0.1)
 			Sound.heartTake()
 			queue_free()	
+			
+# nastavi pocet pridanych hp
+func setHPBonus(hp):
+	hp_bonus = hp

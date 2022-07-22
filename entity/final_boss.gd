@@ -2,11 +2,17 @@ extends KinematicBody2D
 
 
 
-export var gravity = 1000
-export var lives = 20
-export var damage = 70
-export var speed = 140
-const detect_range = 400
+const gravity = 1000
+
+const lives_stage_1 = 500
+const lives_stage_2 = 4000
+
+var lives = lives_stage_1
+
+export var damage_hit = 40
+export var damage_shot = 30
+
+export var speed = 100
 
 
 var move = Vector2()
